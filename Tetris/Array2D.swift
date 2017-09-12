@@ -6,7 +6,7 @@
 //  Copyright © 2016 ZDreams. All rights reserved.
 //
 
-// declaring class for 2d array
+// declaring class for 2d array <t> accepts any type
 class Array2D<T> {
     let columns: Int // const columns
     let rows: Int // const rows
@@ -14,11 +14,11 @@ class Array2D<T> {
     // declare an actual swift array that accepts any type T and ? lets us have or not have a variable
     var array: Array<T?>
 
-    init(columns: Int, rows:Int) // intialize the columns and rows
-{
+    // intialize the columns and rows
+    init(columns: Int, rows:Int)
+    {
     self.columns = columns
     self.rows = rows
-
     // #3 Intialize array structure sets up gameboard
     array = Array<T?>(repeating: nil, count: rows * columns)
 }
