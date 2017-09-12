@@ -1,45 +1,83 @@
 //
 //  GameScene.swift
 //  Tetris
-//
+//  Intializes the background
 //  Created by andrew le on 9/30/16.
 //  Copyright (c) 2016 ZDreams. All rights reserved.
 //
 
 import SpriteKit
 
+//defining a constant this represents the slowest speed the pieces drop 6/10ths of a second
+let TickLengthLevelOne = TimeInterval(600)
+
 class GameScene: SKScene {
-    override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        
-        self.addChild(myLabel)
+    
+    //current tick length set to default tick length, lastTick keeps track the last time we experienced a tick, tick indicates it returns nothing and has no parameters but ? can take paramets
+    var tick:(() -> ())?
+    
+    var tickLengthMillis = TickLengthLevelOne
+    
+    var lastTick:Date?
+    
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        fatalError("NSCoder not supported")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
+    // initalizae the game scene
+    override init(size: CGSize)
+    {
+        super.init(size: size) // super comes from super class. init is to intialize without parameters
+    
+    
+        anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
+    
+        // let is the const of swift
+        let background = SKSpriteNode(imageNamed: "background") // makes the background image our background
+   
+        background.position = CGPoint(x: 0, y: 0) // position the background with set cordinate 0:0 is bottom left corner
+    
+        background.anchorPoint = CGPoint(x: 0, y: 1.0)
+    
+    
+        addChild(background); // add the background
+    }
+    
+    override func update(_ currentTime: TimeInterval)
+    {
+        /* Called before each frame is rendered */
         
-        for touch in touches {
-            let location = touch.locationInNode(self)
+        // guard like an if, if the last tick is missing the game is in a paused state
+        
+        guard let lastTick = lastTick else{
             
-            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
+            return
+        }
+        
+        // calculate a positive value for milisecond value
+        let timePassed = lastTick.timeIntervalSinceNow * -1000.0
+        
+        // if enough time has elasped when time passed exceed our ticklengthMillis we report a tick
+        if timePassed > tickLengthMillis
+        {
+            self.lastTick = Date()
+            // check to see if tick exists and allows us to invoke it at no parameters
+            tick?()
         }
     }
-   
-    override func update(currentTime: CFTimeInterval) {
-        /* Called before each frame is rendered */
-    }
+    
+        //provide accessor methods that let external classes to stop and start
+        func startTicking()
+        {
+            
+            lastTick = Date()
+        }
+        
+        func stopTicking()
+        {
+            lastTick = nil
+        }
+    
 }

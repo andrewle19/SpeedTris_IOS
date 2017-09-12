@@ -4,50 +4,35 @@
 //
 //  Created by andrew le on 9/30/16.
 //  Copyright (c) 2016 ZDreams. All rights reserved.
-//
+///Users/Andrew/Downloads/Blocs/Sounds
 
 import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var scene: GameScene! // declare a scene variable type is gamescene
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        // configure the view
+        let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
+        
+        skView.isMultipleTouchEnabled = false;
+        
+        // create and configure the scene
+        scene = GameScene(size: skView.bounds.size)
+        
+        scene.scaleMode = .aspectFill
+        
+        // display the scene
+        skView.presentScene(scene)
+    
+        
 
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
-            
-            skView.presentScene(scene)
-        }
     }
-
-    override func shouldAutorotate() -> Bool {
-        return true
-    }
-
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
-        } else {
-            return .All
-        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Release any cached data, images, etc that aren't in use.
-    }
-
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }
