@@ -26,8 +26,8 @@ class SquareShape: Shape{
         return [
             
             Orientation.Zero: [(0,0),(1,0),(0,1),(1,1)],
-            Orientation.OneEighty: [(0,0),(1,0),(0,1),(1,1)],
             Orientation.Ninety: [(0,0),(1,0),(0,1),(1,1)],
+            Orientation.OneEighty: [(0,0),(1,0),(0,1),(1,1)],
             Orientation.TwoSeventy: [(0,0),(1,0),(0,1),(1,1)]
         ]
     }
@@ -37,9 +37,9 @@ class SquareShape: Shape{
         return [
             
             Orientation.Zero: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]],
-            Orientation.OneEighty: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]],
             Orientation.Ninety: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]],
-            Orientation.TwoSeventy: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]],
+            Orientation.OneEighty: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]],
+            Orientation.TwoSeventy: [blocks[ThirdBlockIdx],blocks[FourthBlockIdx]]
             
         
         ]
