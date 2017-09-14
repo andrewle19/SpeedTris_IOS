@@ -1,34 +1,34 @@
 //
-//  LineShape.swift
+//  LshapedShape.swift
 //  Tetris
 //
 //  Created by andrew le on 9/12/17.
 //  Copyright © 2017 ZDreams. All rights reserved.
-// Creates the Line Shape Block
+// Makes the L Shaped block
 
-class LineShape: Shape{
-    
+class LShape:Shape
+{
     /*
-        Orientations 0 and 180
-        |0|*
+        Orientation 0
+       
+        |0|
         |1|
-        |2|
+        |2||3|
+     
+        Orientation 90
+        |2||1||0|
         |3|
-     
-        Orientations 90 and 270
-        |0|*|1||2||3|
-     
- 
  
  
     */
+    
     
     override var blockRowColumnPositions: [Orientation : Array<(columnDiff: Int, rowDiff: Int)>]{
         
         return [
             
-            Orientation.Zero: [(0,0),(0,1),(0,2),(0,3)],
-            Orientation.Ninety: [(-1,0),(0,0),(1,0),(2 ,0)],
+            Orientation.Zero: [(0,0),(0,1),(0,2),(1,2)],
+            Orientation.Ninety: [(1,1),(0,1),(-1,1),(-1 ,2)],
             Orientation.OneEighty: [(0,0),(0,1),(0,2),(0,3)],
             Orientation.TwoSeventy: [(-1,0),(0,0),(1,0),(2,0)]
         ]
@@ -45,4 +45,5 @@ class LineShape: Shape{
         ]
     }
 
+    
 }
