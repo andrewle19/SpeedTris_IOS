@@ -4,7 +4,7 @@
 //
 //  Created by andrew le on 10/3/16.
 //  Copyright © 2016 ZDreams. All rights reserved.
-//
+// Sets up the Game board
 
 // declaring class for 2d array <t> accepts any type
 class Array2D<T> {

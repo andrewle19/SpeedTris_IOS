@@ -55,6 +55,7 @@ enum Orientation: Int, CustomStringConvertible{
     }
 }
 
+
 // the number of total shape varieties
 let NumShapeTypes: UInt32 = 7
 
@@ -144,6 +145,78 @@ class Shape: Hashable, CustomStringConvertible{
                 return Block(column: column + diff.columnDiff, row: row + diff.rowDiff, color: color)
         }
     
+    }
+    
+    final func rotateBlocks(orientation: Orientation)
+    {
+        guard let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation]
+        else{
+                return
+        }
+    
+        // idx is index to loop through array, diff refers to the column differences
+        for (idx, diff) in blockRowColumnTranslation.enumerated()
+        {
+            blocks[idx].column = column + diff.columnDiff
+    
+            blocks[idx].row = row + diff.rowDiff
+    
+        }
+    }
+    
+    
+    // Method adjusts the rows and columns of the blocks
+    final func shiftBy(columns: Int,rows: Int)
+    {
+        self.column += columns
+        self.row += rows
+        
+        for block in blocks
+        {
+            block.column += columns
+            block.row += rows
+        }
+    }
+    
+    // lowers the shape by 1 row at a time like tetris
+    final func lowerShapeByOneRow()
+    {
+        shiftBy(columns: 0, rows:1)
+    }
+
+    
+    // position the columns and blocks before rotating to acutual orientation for acuracy
+    final func moveTo(column: Int, row: Int)
+    {
+        self.column = column
+        self.row = row
+        
+        rotateBlocks(orientation: orientation)
+        
+    }
+    
+    // Generates a random shape 
+    final class func random(startingColumn:Int, startingRow: Int) -> Shape{
+        switch Int(arc4random_uniform(NumShapeTypes))
+        {
+            
+        case 0:
+            return SquareShape(column: startingColumn, row: startingRow)
+        case 1:
+            return LineShape(column: startingColumn, row: startingRow)
+        case 2:
+            return TshapeShape(column: startingColumn, row: startingRow)
+        case 3:
+            return LShape(column: startingColumn, row: startingRow)
+        case 4:
+            return JshapeShape(column: startingColumn, row: startingRow)
+        case 5:
+            return SShape(column: startingColumn, row: startingRow)
+        default:
+            return ZShape(column: startingColumn, row: startingRow)
+
+            
+        }
     }
     
 }

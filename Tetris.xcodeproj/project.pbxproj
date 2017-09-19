@@ -27,6 +27,7 @@
 		49E776271F6A86E500D1574E /* JshapeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776261F6A86E500D1574E /* JshapeShape.swift */; };
 		49E776291F6A88BA00D1574E /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776281F6A88BA00D1574E /* SShape.swift */; };
 		49E7762D1F6A8A7500D1574E /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E7762C1F6A8A7500D1574E /* ZShape.swift */; };
+		49EFBD6E1F712EC90045A463 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EFBD6D1F712EC90045A463 /* GameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		49E776261F6A86E500D1574E /* JshapeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JshapeShape.swift; sourceTree = "<group>"; };
 		49E776281F6A88BA00D1574E /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		49E7762C1F6A8A7500D1574E /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZShape.swift; path = ../ZShape.swift; sourceTree = "<group>"; };
+		49EFBD6D1F712EC90045A463 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,11 +130,12 @@
 				4903131B1D9F735B00AEAC96 /* AppDelegate.swift */,
 				490313211D9F735B00AEAC96 /* GameViewController.swift */,
 				4903131F1D9F735B00AEAC96 /* GameScene.swift */,
+				49EFBD6D1F712EC90045A463 /* GameController.swift */,
 				490313231D9F735B00AEAC96 /* Main.storyboard */,
-				49524F641DA3013B002994C1 /* Array2D.swift */,
 				490313261D9F735B00AEAC96 /* Assets.xcassets */,
 				490313281D9F735B00AEAC96 /* LaunchScreen.storyboard */,
 				4903132B1D9F735B00AEAC96 /* Info.plist */,
+				49524F641DA3013B002994C1 /* Array2D.swift */,
 				490EE55C1DAF182D0001CAF0 /* Block.swift */,
 				4906E9D81F67CCCE0014E288 /* Shape.swift */,
 				49E7762C1F6A8A7500D1574E /* ZShape.swift */,
@@ -314,6 +317,7 @@
 				490313221D9F735B00AEAC96 /* GameViewController.swift in Sources */,
 				49E7762D1F6A8A7500D1574E /* ZShape.swift in Sources */,
 				4903131C1D9F735B00AEAC96 /* AppDelegate.swift in Sources */,
+				49EFBD6E1F712EC90045A463 /* GameController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
