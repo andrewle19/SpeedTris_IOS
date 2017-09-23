@@ -38,9 +38,11 @@ class Tetris
     // when game begins the next shape will be chosen if it hasnt already
     func beginGame()
     {
+        
         if(nextShape == nil)
         {
             nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
+           
         }
     }
     
@@ -49,6 +51,7 @@ class Tetris
     {
         // falling shape will be a new shape that will fall
         fallingShape = nextShape
+        print("\(fallingShape)")
         // assigns a new nextShape
         nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
         

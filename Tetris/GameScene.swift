@@ -8,22 +8,22 @@
 
 import SpriteKit
 
-// 7
+// Define the size of each block sprite 20.0 X 20.0
 let BlockSize:CGFloat = 20.0
 
 //defining a constant this represents the slowest speed the pieces drop 6/10ths of a second
-let TickLengthLevelOne = TimeInterval(600)
+let TickLengthLevelOne = TimeInterval(1000)
 
 class GameScene: SKScene {
     
     
-    // 8 
+    // Layer Position is an offset from the edge of the screen
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
     let LayerPosition = CGPoint(x: 6, y: -6)
     
     //current tick length set to default tick length, lastTick keeps track the last time we experienced a tick, tick indicates it returns nothing and has no parameters but ? can take paramets
-    var tick:(() -> ())?
+    var tick:(()->())?
     
     var tickLengthMillis = TickLengthLevelOne
     
@@ -40,7 +40,8 @@ class GameScene: SKScene {
     override init(size: CGSize)
     {
         super.init(size: size) // super comes from super class. init is to intialize without parameters
-    
+        
+        print("Scene Init")
     
         anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
     
@@ -53,6 +54,7 @@ class GameScene: SKScene {
     
     
         addChild(background) // add the background
+        
         addChild(gameLayer) // adds the game layer
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard")
@@ -65,9 +67,9 @@ class GameScene: SKScene {
         
         shapeLayer.position = LayerPosition
         
-        shapeLayer.addChild(gameBoard)
+        shapeLayer.addChild(gameBoard) // add the gameBoard layer
         
-        gameLayer.addChild(shapeLayer)
+        gameLayer.addChild(shapeLayer) // add the shape layer over the gameBoard layer
     }
     
     override func update(_ currentTime: TimeInterval)
@@ -80,10 +82,9 @@ class GameScene: SKScene {
             
             return
         }
-        
         // calculate a positive value for milisecond value
         let timePassed = lastTick.timeIntervalSinceNow * -1000.0
-        
+
         // if enough time has elasped when time passed exceed our ticklengthMillis we report a tick
         if timePassed > tickLengthMillis
         {
@@ -93,32 +94,33 @@ class GameScene: SKScene {
         }
     }
     
-        //provide accessor methods that let external classes to stop and start
-        func startTicking()
-        {
+    //provide accessor methods that let external classes to stop and start
+    func startTicking()
+    {
             
-            lastTick = Date()
-        }
-        
-        func stopTicking()
-        {
-            lastTick = nil
-        }
+        lastTick = Date()
+    }
     
-        // 9
+    func stopTicking()
+    {
+        lastTick = nil
+    }
+    
+    // places the block sprite based on the column and row postion
     func pointForColumn(column: Int, row: Int) -> CGPoint
     {
         let x = LayerPosition.x + (CGFloat(column)*BlockSize)+(BlockSize/2)
-        let y = LayerPosition.y - ((CGFloat(row)*BlockSize)+(BlockSize/2))
+        let y = LayerPosition.y - (CGFloat(row)*BlockSize)+(BlockSize/2)
         
         return CGPoint(x: x, y: y)
     }
+    
     
     func addPreviewShapeToScene(shape:Shape,completion:()->())
     {
         for block in shape.blocks
         {
-            //10
+            // Add blocks to the dictionary Texture Cache
             var texture = textureCache[block.spriteName]
             
             if texture == nil
@@ -130,31 +132,37 @@ class GameScene: SKScene {
             let sprite = SKSpriteNode(texture: texture)
             
             
-            // 11
+            // Place each block sprite in proper location off screen
             sprite.position = pointForColumn(column: block.column, row: block.row-2)
             
             shapeLayer.addChild(sprite)
+            
             block.sprite = sprite
             
             // Animation
             sprite.alpha = 0
             
-            // 12
-            let moveSpriteAction = SKAction.move(to: pointForColumn(column: block.column, row: block.row), duration: TimeInterval(0.2))
+            // SKAaction allows the sprites to animate fading them in when a new piece aprears
+            // Redraws each block for a given shape
+            let moveAction = SKAction.move(to: pointForColumn(column: block.column, row: block.row), duration: TimeInterval(0.2))
             
-            moveSpriteAction.timingMode = .easeOut
+            moveAction.timingMode = .easeOut
             
-            let fadeInAction = SKAction.fadeAlpha(by: 0.7, duration: 0.4)
+            let fadeInAction = SKAction.fadeAlpha(to: 0.7, duration: 0.4)
             
             fadeInAction.timingMode = .easeOut
             
-            sprite.run(SKAction.group([moveSpriteAction,fadeInAction]))
+            sprite.run(SKAction.group([moveAction,fadeInAction]))
             
         }
+        run(SKAction.wait(forDuration: 0.4))
     }
     
-    func movePreviewShape(shape:Shape,completion:@escaping () -> ())
+    // 
+    func movePreviewShape(shape:Shape,completion:() -> ())
     {
+        
+        print("move Preview called")
         for block in shape.blocks
         {
             let sprite = block.sprite!
@@ -168,7 +176,7 @@ class GameScene: SKScene {
             sprite.run(SKAction.group([moveToAction,SKAction.fadeAlpha(by: 1.0, duration: 0.2)]),completion: {})
             
         }
-        run(SKAction.wait(forDuration: 0.2),completion: completion)
+        run(SKAction.wait(forDuration: 0.2))
     }
     
     
@@ -186,11 +194,11 @@ class GameScene: SKScene {
             
             if block == shape.blocks.last
             {
-                sprite.run(moveToAction, completion: completion)
+                sprite.run(moveToAction, completion: {})
             }
             else
             {
-                spirte.run(moveToAction)
+                sprite.run(moveToAction)
             }
         }
     }
