@@ -17,17 +17,18 @@ class Array2D<T> {
     // intialize the columns and rows
     init(columns: Int, rows:Int)
     {
-    self.columns = columns
-    self.rows = rows
-    // #3 Intialize array structure sets up gameboard
-    array = Array<T?>(repeating: nil, count: rows * columns)
-}
+        self.columns = columns
+        self.rows = rows
+        // #3 Intialize array structure sets up gameboard
+        array = Array<T?>(repeating: nil, count: rows * columns)
+    }
+    
     // supscript capable of supporting array[column,row]
     subscript(column: Int, row: Int)->T? {
        
         get // retrieve has to return something3
         {
-            return array[(row*columns)+column]
+            return array[( row * columns)+column]
         }
         
         set(newValue) {

@@ -12,29 +12,23 @@ import SpriteKit
 class GameViewController: UIViewController, TetrisDelegate {
 
     var scene: GameScene! // declare a scene variable type is gamescene
-    
     var tetris: Tetris!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-    
         // configure the view
         let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
-        
         skView.isMultipleTouchEnabled = false;
         
         // create and configure the scene
         scene = GameScene(size: skView.bounds.size)
-        
         scene.scaleMode = .aspectFill
-        
         // set the enclosure property of Tick in game scene
         scene.tick = didTick
         
         tetris = Tetris()
-        
         tetris.delegate = self
-        
         tetris.beginGame()
         
         
@@ -78,24 +72,25 @@ class GameViewController: UIViewController, TetrisDelegate {
     func nextShape()
     {
         let newShapes = tetris.newShape()
-        
         guard let fallingShape = newShapes.fallingShape else
         {
             return
         }
         
-        self.scene.addPreviewShapeToScene(shape: newShapes.nextShape!, completion: {})
-        
-        self.scene.movePreviewShape(shape: fallingShape, completion:{})
-    // 16
-        self.view.isUserInteractionEnabled = true
-        self.scene.startTicking()
+        self.scene.addPreviewShapeToScene(shape: newShapes.nextShape!){}
+        self.scene.movePreviewShape(shape: fallingShape)
+        {
+            // 16
+            self.view.isUserInteractionEnabled = true
+            self.scene.startTicking()
+        }
         
     }
     
-    func gameDidBegin(tetris: Tetris) {
+    func gameDidBegin(tetris: Tetris)
+    {
+        scene.tickLengthMillis = TickLengthLevelOne
         // following is false when restarting a new game
-        
         if tetris.nextShape != nil && tetris.nextShape!.blocks[0].sprite == nil
         {
             scene.addPreviewShapeToScene(shape: tetris.nextShape!, completion: {})

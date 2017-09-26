@@ -12,7 +12,7 @@ import SpriteKit
 let BlockSize:CGFloat = 20.0
 
 //defining a constant this represents the slowest speed the pieces drop 6/10ths of a second
-let TickLengthLevelOne = TimeInterval(1000)
+let TickLengthLevelOne = TimeInterval(600)
 
 class GameScene: SKScene {
     
@@ -48,13 +48,11 @@ class GameScene: SKScene {
         // let is the const of swift
         let background = SKSpriteNode(imageNamed: "background") // makes the background image our background
    
-        background.position = CGPoint(x: 0, y: 0) // position the background with set cordinate 0:0 is bottom left corner
-    
+        // position the background with set cordinate 0:0 is bottom left corner
+        background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
-    
-    
         addChild(background) // add the background
-        
+
         addChild(gameLayer) // adds the game layer
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard")
@@ -78,8 +76,8 @@ class GameScene: SKScene {
         
         // guard like an if, if the last tick is missing the game is in a paused state
         
-        guard let lastTick = lastTick else{
-            
+        guard let lastTick = lastTick else
+        {
             return
         }
         // calculate a positive value for milisecond value
@@ -116,7 +114,7 @@ class GameScene: SKScene {
     }
     
     
-    func addPreviewShapeToScene(shape:Shape,completion:()->())
+    func addPreviewShapeToScene(shape:Shape,completion:@escaping ()->())
     {
         for block in shape.blocks
         {
@@ -148,18 +146,18 @@ class GameScene: SKScene {
             
             moveAction.timingMode = .easeOut
             
-            let fadeInAction = SKAction.fadeAlpha(to: 0.7, duration: 0.4)
+            let fadeInAction = SKAction.fadeAlpha(to: 0.7, duration: 0.2)
             
             fadeInAction.timingMode = .easeOut
             
             sprite.run(SKAction.group([moveAction,fadeInAction]))
             
         }
-        run(SKAction.wait(forDuration: 0.4))
+        run(SKAction.wait(forDuration: 0.2),completion:completion)
     }
     
     // 
-    func movePreviewShape(shape:Shape,completion:() -> ())
+    func movePreviewShape(shape:Shape,completion:@escaping () -> ())
     {
         
         print("move Preview called")
@@ -172,15 +170,16 @@ class GameScene: SKScene {
             let moveToAction: SKAction = SKAction.move(to: moveTo, duration: 0.2)
             
             moveToAction.timingMode = .easeOut
-            
-            sprite.run(SKAction.group([moveToAction,SKAction.fadeAlpha(by: 1.0, duration: 0.2)]),completion: {})
+            let fadeInAction = SKAction.fadeAlpha(to: 1.0, duration: 0.2)
+            fadeInAction.timingMode = .easeOut
+            sprite.run(SKAction.group([moveToAction, fadeInAction]))
             
         }
-        run(SKAction.wait(forDuration: 0.2))
+        run(SKAction.wait(forDuration: 0.2),completion:completion)
     }
     
     
-    func redrawShape(shape:Shape, completion:() -> ())
+    func redrawShape(shape:Shape, completion:@escaping () -> ())
     {
         for block in shape.blocks
         {

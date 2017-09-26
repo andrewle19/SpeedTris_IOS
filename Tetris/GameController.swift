@@ -26,25 +26,18 @@ let LevelThreshold = 500
 
 // checks whether the user is making legal moves and reacts acordingly (RULES)
 protocol TetrisDelegate {
-    
     // called when current round of Tetris ends
     func gameDidEnd(tetris: Tetris)
-    
     // called after a game has began
     func gameDidBegin(tetris: Tetris)
-    
     // called when the falling shape has become part of the game board
     func gameShapeDidLand(tetris: Tetris)
-    
     // called when falling shape changed its location
     func gameShapeDidMove(tetris: Tetris)
-    
     //called when the falling shape has changed its location after being droped
     func gameShapeDidDrop(tetris: Tetris)
-    
     // called when the game has reached a new level
     func gameDidLevelUp(tetris: Tetris)
-    
 }
 
 class Tetris
@@ -69,13 +62,10 @@ class Tetris
     // when game begins the next shape will be chosen if it hasnt already
     func beginGame()
     {
-        
         if(nextShape == nil)
         {
             nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
-           
         }
-        
         delegate?.gameDidBegin(tetris: self)
     }
     
@@ -86,10 +76,8 @@ class Tetris
     {
         // falling shape will be a new shape that will fall
         fallingShape = nextShape
-        print("\(fallingShape)")
         // assigns a new nextShape
         nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
-        
         // falling shape will move to starting position
         fallingShape?.moveTo(column: StartingColumn, row: StartingRow)
         
@@ -98,15 +86,10 @@ class Tetris
         guard detectIllegalPlacement() == false else
         {
             nextShape = fallingShape
-            
             nextShape!.moveTo(column: PreviewColumn, row: PreviewRow)
-            
             endGame()
-            
             return(nil,nil)
         }
-        
-        
         return(fallingShape,nextShape)
     }
     
@@ -133,7 +116,6 @@ class Tetris
                 return true
             }
         }
-        
         return false
     }
     
@@ -265,7 +247,6 @@ class Tetris
             blockArray[block.column,block.row] = block
         }
         fallingShape = nil
-        
         delegate?.gameShapeDidLand(tetris: self)
     }
     
@@ -300,14 +281,11 @@ class Tetris
     func removeCompletedLines() -> (linesRemoved: Array<Array<Block>>, fallenBlocks: Array<Array<Block>>)
     {
         var removedLines = Array<Array<Block>>()
-        
         for row in (1..<RowNum).reversed()
         {
             var rowOfBlocks = Array<Block>()
-        
-        
-        // loop through all the columns and row and if a set ends with 10 blocks total count that as a removed
-            // line and add it to return value
+            // loop through all the columns and row and if a set ends with 10 blocks total count that as
+            // removed line and add it to return value
             for column in 0..<ColumnNum
             {
                 guard let block = blockArray[column,row] else
@@ -392,20 +370,16 @@ class Tetris
     func removeAllBlocks() -> Array<Array<Block>>
     {
         var allBlocks = Array<Array<Block>>()
-        
         for row in 0..<RowNum
         {
             var rowOfBlocks = Array<Block>()
-            
             for column in 0..<ColumnNum
             {
                 guard let block = blockArray[column,row] else
                 {
                     continue
                 }
-                
                 rowOfBlocks.append(block)
-                
                 blockArray[column,row] = nil
             }
             allBlocks.append(rowOfBlocks)

@@ -11,7 +11,6 @@
 		490313201D9F735B00AEAC96 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903131F1D9F735B00AEAC96 /* GameScene.swift */; };
 		490313221D9F735B00AEAC96 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490313211D9F735B00AEAC96 /* GameViewController.swift */; };
 		490313251D9F735B00AEAC96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490313231D9F735B00AEAC96 /* Main.storyboard */; };
-		490313271D9F735B00AEAC96 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 490313261D9F735B00AEAC96 /* Assets.xcassets */; };
 		4903132A1D9F735B00AEAC96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 490313281D9F735B00AEAC96 /* LaunchScreen.storyboard */; };
 		490313351D9F735B00AEAC96 /* TetrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490313341D9F735B00AEAC96 /* TetrisTests.swift */; };
 		490313401D9F735B00AEAC96 /* TetrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4903133F1D9F735B00AEAC96 /* TetrisUITests.swift */; };
@@ -24,6 +23,7 @@
 		49524F5F1DA2F22D002994C1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 49524F5E1DA2F22D002994C1 /* Sounds */; };
 		49524F611DA2F285002994C1 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 49524F601DA2F285002994C1 /* Sprites.atlas */; };
 		49524F651DA3013B002994C1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49524F641DA3013B002994C1 /* Array2D.swift */; };
+		496EA2821F7A21EB00035F9A /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 496EA2811F7A21EB00035F9A /* Images */; };
 		49C293A01F79D7F6002D6C68 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2939F1F79D7F6002D6C68 /* ZShape.swift */; };
 		49E776271F6A86E500D1574E /* JshapeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776261F6A86E500D1574E /* JshapeShape.swift */; };
 		49E776291F6A88BA00D1574E /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776281F6A88BA00D1574E /* SShape.swift */; };
@@ -53,7 +53,6 @@
 		4903131F1D9F735B00AEAC96 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		490313211D9F735B00AEAC96 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		490313241D9F735B00AEAC96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		490313261D9F735B00AEAC96 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		490313291D9F735B00AEAC96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4903132B1D9F735B00AEAC96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		490313301D9F735B00AEAC96 /* TetrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TetrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +70,7 @@
 		49524F5E1DA2F22D002994C1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		49524F601DA2F285002994C1 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		49524F641DA3013B002994C1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
+		496EA2811F7A21EB00035F9A /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		49C2939F1F79D7F6002D6C68 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		49E776261F6A86E500D1574E /* JshapeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JshapeShape.swift; sourceTree = "<group>"; };
 		49E776281F6A88BA00D1574E /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
@@ -130,9 +130,9 @@
 				4903131B1D9F735B00AEAC96 /* AppDelegate.swift */,
 				490313211D9F735B00AEAC96 /* GameViewController.swift */,
 				4903131F1D9F735B00AEAC96 /* GameScene.swift */,
+				496EA2811F7A21EB00035F9A /* Images */,
 				49EFBD6D1F712EC90045A463 /* GameController.swift */,
 				490313231D9F735B00AEAC96 /* Main.storyboard */,
-				490313261D9F735B00AEAC96 /* Assets.xcassets */,
 				490313281D9F735B00AEAC96 /* LaunchScreen.storyboard */,
 				4903132B1D9F735B00AEAC96 /* Info.plist */,
 				49524F641DA3013B002994C1 /* Array2D.swift */,
@@ -275,8 +275,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496EA2821F7A21EB00035F9A /* Images in Resources */,
 				4903132A1D9F735B00AEAC96 /* LaunchScreen.storyboard in Resources */,
-				490313271D9F735B00AEAC96 /* Assets.xcassets in Resources */,
 				49524F5F1DA2F22D002994C1 /* Sounds in Resources */,
 				490313251D9F735B00AEAC96 /* Main.storyboard in Resources */,
 				49524F611DA2F285002994C1 /* Sprites.atlas in Resources */,
