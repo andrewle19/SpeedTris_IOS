@@ -56,11 +56,8 @@ class GameScene: SKScene {
         addChild(gameLayer) // adds the game layer
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard")
-        let gameSize = CGSize(width: BlockSize*CGFloat(ColumnNum), height: BlockSize*CGFloat(RowNum))
-        let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: gameSize)
-        
-        gameBoard.anchorPoint = CGPoint(x:0,y:1.0)
-        
+        let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSize(width: BlockSize * CGFloat(ColumnNum), height: BlockSize * CGFloat(RowNum)))
+        gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
         
         shapeLayer.position = LayerPosition
@@ -95,7 +92,6 @@ class GameScene: SKScene {
     //provide accessor methods that let external classes to stop and start
     func startTicking()
     {
-            
         lastTick = Date()
     }
     
@@ -107,10 +103,10 @@ class GameScene: SKScene {
     // places the block sprite based on the column and row postion
     func pointForColumn(column: Int, row: Int) -> CGPoint
     {
-        let x = LayerPosition.x + (CGFloat(column)*BlockSize)+(BlockSize/2)
-        let y = LayerPosition.y - (CGFloat(row)*BlockSize)+(BlockSize/2)
-        
+        let x = LayerPosition.x + (CGFloat(column) * BlockSize) + (BlockSize / 2)
+        let y = LayerPosition.y - ((CGFloat(row) * BlockSize) + (BlockSize / 2))
         return CGPoint(x: x, y: y)
+
     }
     
     

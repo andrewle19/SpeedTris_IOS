@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController, TetrisDelegate {
+class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerDelegate {
 
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
@@ -30,26 +30,6 @@ class GameViewController: UIViewController, TetrisDelegate {
         tetris = Tetris()
         tetris.delegate = self
         tetris.beginGame()
-        
-        
-        
-        /*Add next Shape to the game layer at the preview location
-        // Chooses the next shapes to be placed
-        scene.addPreviewShapeToScene(shape: tetris.nextShape!, completion:{})
-        self.tetris.nextShape?.moveTo(column: StartingColumn, row: StartingRow)
-        
-        self.scene.movePreviewShape(shape: self.tetris.nextShape!, completion:{})
-        
-        let nextShapes = self.tetris.newShape()
-        
-        
-        self.scene.startTicking() // starts ticking and roping
-        
-        
-        
-        self.scene.addPreviewShapeToScene(shape: nextShapes.nextShape!,completion: {})
-        */
-       
 
         // display the scene
         skView.presentScene(scene)
@@ -67,6 +47,13 @@ class GameViewController: UIViewController, TetrisDelegate {
         self.tetris.fallingShape?.lowerShapeByOneRow()
     
         scene.redrawShape(shape: tetris.fallingShape!, completion: {})
+    }
+    
+    
+    // when user taps on screen
+    @IBAction func didTap(_ sender: UITapGestureRecognizer)
+    {
+        tetris.rotateShape()
     }
     
     func nextShape()
