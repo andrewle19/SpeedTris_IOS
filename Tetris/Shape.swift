@@ -146,7 +146,7 @@ class Shape: Hashable, CustomStringConvertible{
         }
     
     }
-    
+    // rotates block returns the new block postion given an orientation
     final func rotateBlocks(orientation: Orientation)
     {
         guard let blockRowColumnTranslation:Array<(columnDiff: Int, rowDiff: Int)> = blockRowColumnPositions[orientation]
@@ -162,6 +162,26 @@ class Shape: Hashable, CustomStringConvertible{
             blocks[idx].row = row + diff.rowDiff
     
         }
+    }
+    
+    // rotate shape clockwise
+    final func rotateClockwise()
+    {
+        let newOrientation = Orientation.rotate(orientation: orientation, clockwise: true)
+        
+        rotateBlocks(orientation: newOrientation)
+        
+        orientation = newOrientation
+    }
+    
+    // rotate shape counter clockwise
+    final func rotateCounterClockwise()
+    {
+        let newOrientation = Orientation.rotate(orientation: orientation, clockwise: false)
+        
+        rotateBlocks(orientation: newOrientation)
+        
+        orientation = newOrientation
     }
     
     
@@ -183,7 +203,25 @@ class Shape: Hashable, CustomStringConvertible{
     {
         shiftBy(columns: 0, rows:1)
     }
-
+    
+    // raises shape by one row
+    final func raiseShapeByOneRow()
+    {
+        shiftBy(columns: 0, rows: -1)
+    }
+    
+    // Shift right by one column
+    final func shiftRightByOneColumn()
+    {
+        shiftBy(columns: 1, rows:0)
+    }
+    
+    // Shift left by one column
+    final func shiftLeftByOneColumn()
+    {
+        shiftBy(columns: -1, rows:0)
+    }
+    
     
     // position the columns and blocks before rotating to acutual orientation for acuracy
     final func moveTo(column: Int, row: Int)

@@ -27,7 +27,7 @@ class Array2D<T> {
        
         get // retrieve has to return something3
         {
-            return array[(row*columns)+columns]
+            return array[(row*columns)+column]
         }
         
         set(newValue) {
