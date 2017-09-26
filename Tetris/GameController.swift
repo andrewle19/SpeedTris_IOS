@@ -22,7 +22,7 @@ let PreviewRow = 1
 
 // score
 let PointsPerLine = 10
-let LevelThreshold = 500
+let LevelThreshold = 100
 
 // checks whether the user is making legal moves and reacts acordingly (RULES)
 protocol TetrisDelegate {

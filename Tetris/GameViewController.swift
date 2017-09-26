@@ -14,6 +14,9 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
+    
     // keep track of last point on screen which movement occured
     var panPointReference: CGPoint?
     
@@ -106,13 +109,9 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         return true
     }
     
-    //15
     func didTick()
     {
         tetris.letShapeFall()
-        self.tetris.fallingShape?.lowerShapeByOneRow()
-    
-        scene.redrawShape(shape: tetris.fallingShape!, completion: {})
     }
     
     
@@ -142,6 +141,11 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     
     func gameDidBegin(tetris: Tetris)
     {
+        // reset scores and speed of ticks
+        levelLabel.text = "\(tetris.level)"
+        scoreLabel.text = "\(tetris.score)"
+        scene.tickLengthMillis = TickLengthLevelOne
+        
         scene.tickLengthMillis = TickLengthLevelOne
         // following is false when restarting a new game
         if tetris.nextShape != nil && tetris.nextShape!.blocks[0].sprite == nil
@@ -159,11 +163,26 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     {
         view.isUserInteractionEnabled = false
         scene.stopTicking()
+        
+        // destroy all blocks when lose then start game over again
+        scene.animateCollapsingLines(linesToRemove: tetris.removeAllBlocks(), fallenBlocks: tetris.removeAllBlocks())
+        {
+            tetris.beginGame()
+        }
     }
     
     func gameDidLevelUp(tetris: Tetris)
     {
+        levelLabel.text = "\(tetris.level)"
         
+        if scene.tickLengthMillis >= 100
+        {
+            scene.tickLengthMillis -= 100
+        }
+        else if scene.tickLengthMillis > 50
+        {
+            scene.tickLengthMillis -= 50
+        }
     }
     
     func gameShapeDidDrop(tetris: Tetris)
@@ -179,10 +198,29 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     func gameShapeDidLand(tetris: Tetris)
     {
         scene.stopTicking()
-        nextShape()
+        self.view.isUserInteractionEnabled = false
+        
+        // check completed lines when shape lands
+        // if removed at any lines we update score label to newest score then animate
+        let removedLines = tetris.removeCompletedLines()
+        
+        if removedLines.linesRemoved.count > 0
+        {
+            self.scoreLabel.text = "\(tetris.score)"
+            // animate the lines exploding
+            scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks: removedLines.fallenBlocks)
+            {
+                // recursive fall to invoke itself, blocks fallen into their new location
+                self.gameShapeDidLand(tetris: tetris)
+            }
+        }
+        else
+        {
+            nextShape()
+        }
+        
     }
     
-    // 17 
     func gameShapeDidMove(tetris: Tetris) {
         scene.redrawShape(shape: tetris.fallingShape!, completion: {})
     }
