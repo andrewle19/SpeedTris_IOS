@@ -14,6 +14,72 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
     
+    // keep track of last point on screen which movement occured
+    var panPointReference: CGPoint?
+    
+    @IBAction func didPan(_ sender: UIPanGestureRecognizer)
+    {
+        // measure the distance the users finger traveled
+        let currentPoint = sender.translation(in: self.view)
+        
+        if let ogPoint = panPointReference
+        {
+            // check whether x translation has crossed 90% of Block size
+            if abs(currentPoint.x - ogPoint.x) > (BlockSize * 0.9)
+            {
+                
+                // velocity corresponding to which side the user wants to go
+                if sender.velocity(in: self.view).x > CGFloat(0)
+                {
+                    tetris.moveShapeRight()
+                    panPointReference = currentPoint
+                }
+                else
+                {
+                    tetris.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        }
+        else if sender.state == .began
+        {
+            panPointReference = currentPoint
+        }
+    }
+    
+    // brings shape down faster when swiped down
+    @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer)
+    {
+        tetris.dropShape()
+    }
+    // allows gesture recognizers to work in tandem with one another
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
+    {
+        return true
+    }
+    
+    // Allows Gestures to be used simulatanosly with one another
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer is UISwipeGestureRecognizer
+        {
+            if otherGestureRecognizer is UIPanGestureRecognizer
+            {
+                return true
+            }
+        }
+        else if gestureRecognizer is UIPanGestureRecognizer
+        {
+            if otherGestureRecognizer is UITapGestureRecognizer
+            {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -102,7 +168,12 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     
     func gameShapeDidDrop(tetris: Tetris)
     {
+        // stops tick redraw shape in new location then drop
+        scene.stopTicking()
         
+        scene.redrawShape(shape: tetris.fallingShape!){
+            tetris.letShapeFall()
+        }
     }
     
     func gameShapeDidLand(tetris: Tetris)

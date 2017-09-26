@@ -189,7 +189,7 @@ class GameScene: SKScene {
             
             if block == shape.blocks.last
             {
-                sprite.run(moveToAction, completion: {})
+                sprite.run(moveToAction, completion: completion)
             }
             else
             {

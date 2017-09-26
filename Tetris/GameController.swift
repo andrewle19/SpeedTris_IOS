@@ -203,7 +203,7 @@ class Tetris
         
         guard detectIllegalPlacement() == false else
         {
-            shape.shiftRightByOneColumn()
+            shape.shiftLeftByOneColumn()
             
             return
         }
@@ -224,7 +224,7 @@ class Tetris
         
         guard detectIllegalPlacement() == false else
         {
-            shape.shiftLeftByOneColumn()
+            shape.shiftRightByOneColumn()
             
             return
         }

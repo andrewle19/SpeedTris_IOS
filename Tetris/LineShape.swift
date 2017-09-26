@@ -27,10 +27,10 @@ class LineShape: Shape{
         
         return [
             
-            Orientation.Zero: [(0,0),(0,1),(0,2),(0,3)],
-            Orientation.Ninety: [(-1,0),(0,0),(1,0),(2 ,0)],
-            Orientation.OneEighty: [(0,0),(0,1),(0,2),(0,3)],
-            Orientation.TwoSeventy: [(-1,0),(0,0),(1,0),(2,0)]
+            Orientation.Zero:       [(0, 0), (0, 1), (0, 2), (0, 3)],
+            Orientation.Ninety:     [(-1,0), (0, 0), (1, 0), (2, 0)],
+            Orientation.OneEighty:  [(0, 0), (0, 1), (0, 2), (0, 3)],
+            Orientation.TwoSeventy: [(-1,0), (0, 0), (1, 0), (2, 0)]
         ]
     }
     
