@@ -47,9 +47,12 @@ class Tetris
     var fallingShape:Shape?
     var delegate: TetrisDelegate?
     
-    // starting score and level
+    
+
+    // starting score and level and level threshold
     var score = 0
     var level = 1
+    var pointsEarned = 0
     
     // initalize the game
     init()
@@ -312,13 +315,24 @@ class Tetris
             return ([],[])
         }
         
-        // add points based on number of lines created and their level,
-        let pointsEarned = removedLines.count * PointsPerLine * level
+        // add points based on
+        
+        // if user clears 4 rows plus double the points earned
+        if(removedLines.count >= 4)
+        {
+            pointsEarned = removedLines.count * PointsPerLine * level * 2
+        }
+        // else at points normally
+        else
+        {
+            pointsEarned = removedLines.count * PointsPerLine * level
+        }
+        
         
         score += pointsEarned
         
         // level up inform the delegate
-        if score >= level * LevelThreshold
+        if score >= LevelThreshold * level
         {
             level += 1
             delegate?.gameDidLevelUp(tetris: self)

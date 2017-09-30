@@ -105,6 +105,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         
 
     }
+    // hide the task bar
     override var prefersStatusBarHidden : Bool {
         return true
     }
@@ -121,6 +122,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         tetris.rotateShape()
     }
     
+    
+    // gets the next shape
     func nextShape()
     {
         let newShapes = tetris.newShape()
@@ -132,13 +135,14 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         self.scene.addPreviewShapeToScene(shape: newShapes.nextShape!){}
         self.scene.movePreviewShape(shape: fallingShape)
         {
-            // 16
+            
             self.view.isUserInteractionEnabled = true
             self.scene.startTicking()
         }
         
     }
     
+    // check if the game has began
     func gameDidBegin(tetris: Tetris)
     {
         // reset scores and speed of ticks
@@ -173,16 +177,24 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     
     func gameDidLevelUp(tetris: Tetris)
     {
+        
+        // as you level up the speed of the blocks will drop faster
         levelLabel.text = "\(tetris.level)"
         
-        if scene.tickLengthMillis >= 100
+        if scene.tickLengthMillis > 250
         {
             scene.tickLengthMillis -= 100
         }
-        else if scene.tickLengthMillis > 50
+        else if scene.tickLengthMillis > 100 && scene.tickLengthMillis < 250
         {
             scene.tickLengthMillis -= 50
         }
+        else
+        {
+            scene.tickLengthMillis -= 20
+        }
+       
+        
     }
     
     func gameShapeDidDrop(tetris: Tetris)

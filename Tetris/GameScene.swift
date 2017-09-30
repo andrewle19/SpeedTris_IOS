@@ -12,7 +12,7 @@ import SpriteKit
 let BlockSize:CGFloat = 20.0
 
 //defining a constant this represents the slowest speed the pieces drop 6/10ths of a second
-let TickLengthLevelOne = TimeInterval(600)
+let TickLengthLevelOne = TimeInterval(550)
 
 class GameScene: SKScene {
     
@@ -22,7 +22,8 @@ class GameScene: SKScene {
     let shapeLayer = SKNode()
     let LayerPosition = CGPoint(x: 6, y: -6)
     
-    //current tick length set to default tick length, lastTick keeps track the last time we experienced a tick, tick indicates it returns nothing and has no parameters but ? can take paramets
+    //current tick length set to default tick length, lastTick keeps track the last time we experienced a tick,
+    // tick indicates it returns nothing and has no parameters but ? can take paramets
     var tick:(()->())?
     
     var tickLengthMillis = TickLengthLevelOne
@@ -42,20 +43,20 @@ class GameScene: SKScene {
         super.init(size: size) // super comes from super class. init is to intialize without parameters
         
         print("Scene Init")
-    
+        self.backgroundColor = UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
         anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
-    
-        // let is the const of swift
+        
+        /* let is the const of swift
         let background = SKSpriteNode(imageNamed: "background") // makes the background image our background
-   
-        // position the background with set cordinate 0:0 is bottom left corner
+        
+         position the background with set cordinate 0:0 is bottom left corner
         background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background) // add the background
+        addChild(background)  add the background */
 
         addChild(gameLayer) // adds the game layer
         
-        let gameBoardTexture = SKTexture(imageNamed: "gameboard")
+        let gameBoardTexture = SKTexture(imageNamed: "gameboard.png")
         let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSize(width: BlockSize * CGFloat(ColumnNum), height: BlockSize * CGFloat(RowNum)))
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
