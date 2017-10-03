@@ -41,19 +41,24 @@ class GameScene: SKScene {
     override init(size: CGSize)
     {
         super.init(size: size) // super comes from super class. init is to intialize without parameters
+
+        print(size)
         
         print("Scene Init")
         self.backgroundColor = UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
-        anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
+
+        self.anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
         
-        /* let is the const of swift
+        
+        /*
         let background = SKSpriteNode(imageNamed: "background") // makes the background image our background
         
-         position the background with set cordinate 0:0 is bottom left corner
         background.position = CGPoint(x: 0, y: 0)
         background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background)  add the background */
-
+        addChild(background)
+        */
+       
+        
         addChild(gameLayer) // adds the game layer
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard.png")
@@ -61,11 +66,24 @@ class GameScene: SKScene {
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
         
+        
+       
+        
         shapeLayer.position = LayerPosition
         
         shapeLayer.addChild(gameBoard) // add the gameBoard layer
         
         gameLayer.addChild(shapeLayer) // add the shape layer over the gameBoard layer
+        
+        /*
+        let text = SKLabelNode(fontNamed: "Helvetica")
+        text.text = "TAP to Play!"
+        text.fontSize = 50
+        text.fontColor = SKColor.white
+        text.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.addChild(text)
+        */
+        
     }
     
     override func update(_ currentTime: TimeInterval)
@@ -153,7 +171,7 @@ class GameScene: SKScene {
         run(SKAction.wait(forDuration: 0.2),completion:completion)
     }
     
-    // 
+    // moving the preview shape onto the game board
     func movePreviewShape(shape:Shape,completion:@escaping () -> ())
     {
         

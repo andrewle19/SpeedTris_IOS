@@ -89,7 +89,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // configure the view
         let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
         skView.isMultipleTouchEnabled = false;
-        
+    
         // create and configure the scene
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
