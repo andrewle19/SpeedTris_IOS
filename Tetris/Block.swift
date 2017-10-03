@@ -15,7 +15,7 @@ let NumberOfColors: UInt32 = 6
 enum BlockColor: Int, CustomStringConvertible {
     
     // provide full list of enum options one for each color begging with 0 and ending with 5 yellow
-    case blue = 0, orange, purple, red, teal, yellow
+    case blue = 0, orange, violet, red, teal, yellow
     
     // computed property called sprite name, computed property is one that is a typical variable but when 
     // accessing it a code bloc generates its value each time like a get function being called
@@ -33,8 +33,8 @@ enum BlockColor: Int, CustomStringConvertible {
                 return "blue2x"
             case .orange:
                 return "orange2x"
-            case .purple:
-                return "purple2x"
+            case .violet:
+                return "violet2x"
             case .red:
                 return "red2x"
             case .teal:
@@ -51,8 +51,8 @@ enum BlockColor: Int, CustomStringConvertible {
                 return "blue"
             case .orange:
                 return "orange"
-            case .purple:
-                return "purple"
+            case .violet:
+                return "violet"
             case .red:
                 return "red"
             case .teal:

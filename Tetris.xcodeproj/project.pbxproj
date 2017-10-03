@@ -25,17 +25,7 @@
 		4925E2641F81FD4E0007C140 /* gameboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2631F81FD4E0007C140 /* gameboard@2x.png */; };
 		4925E2661F8206D50007C140 /* gameboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2651F8206D50007C140 /* gameboard.png */; };
 		4925E2681F8206DF0007C140 /* gameboard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2671F8206DF0007C140 /* gameboard@3x.png */; };
-		4925E2B21F831F4E0007C140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2B11F831F4E0007C140 /* AppDelegate.swift */; };
-		4925E2B41F831F4E0007C140 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2B31F831F4E0007C140 /* GameScene.sks */; };
-		4925E2B61F831F4E0007C140 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2B51F831F4E0007C140 /* Actions.sks */; };
-		4925E2B81F831F4E0007C140 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2B71F831F4E0007C140 /* GameScene.swift */; };
-		4925E2BA1F831F4E0007C140 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2B91F831F4E0007C140 /* GameViewController.swift */; };
-		4925E2BD1F831F4E0007C140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2BB1F831F4E0007C140 /* Main.storyboard */; };
-		4925E2BF1F831F4E0007C140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2BE1F831F4E0007C140 /* Assets.xcassets */; };
-		4925E2C21F831F4E0007C140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2C01F831F4E0007C140 /* LaunchScreen.storyboard */; };
-		4925E2CD1F831F4F0007C140 /* SpeedTrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2CC1F831F4F0007C140 /* SpeedTrisTests.swift */; };
-		4925E2D81F831F4F0007C140 /* SpeedTrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2D71F831F4F0007C140 /* SpeedTrisUITests.swift */; };
-		4925E2E81F8365FB0007C140 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2E71F8365FB0007C140 /* Sprites.atlas */; };
+		4925E2EA1F837CA70007C140 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2E91F837CA70007C140 /* Sprites.atlas */; };
 		49524F5F1DA2F22D002994C1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 49524F5E1DA2F22D002994C1 /* Sounds */; };
 		49524F651DA3013B002994C1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49524F641DA3013B002994C1 /* Array2D.swift */; };
 		496EA2861F7A2CD000035F9A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496EA2851F7A2CD000035F9A /* images.xcassets */; };
@@ -109,22 +99,9 @@
 		4925E2651F8206D50007C140 /* gameboard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gameboard.png; sourceTree = "<group>"; };
 		4925E2671F8206DF0007C140 /* gameboard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gameboard@3x.png"; sourceTree = "<group>"; };
 		4925E2AF1F831F4E0007C140 /* SpeedTris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedTris.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4925E2B11F831F4E0007C140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4925E2B31F831F4E0007C140 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		4925E2B51F831F4E0007C140 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		4925E2B71F831F4E0007C140 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		4925E2B91F831F4E0007C140 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		4925E2BC1F831F4E0007C140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4925E2BE1F831F4E0007C140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4925E2C11F831F4E0007C140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4925E2C31F831F4E0007C140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4925E2C81F831F4E0007C140 /* SpeedTrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4925E2CC1F831F4F0007C140 /* SpeedTrisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTrisTests.swift; sourceTree = "<group>"; };
-		4925E2CE1F831F4F0007C140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4925E2D31F831F4F0007C140 /* SpeedTrisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTrisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4925E2D71F831F4F0007C140 /* SpeedTrisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTrisUITests.swift; sourceTree = "<group>"; };
-		4925E2D91F831F4F0007C140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4925E2E71F8365FB0007C140 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		4925E2E91F837CA70007C140 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		49524F5E1DA2F22D002994C1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		49524F641DA3013B002994C1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		496EA2851F7A2CD000035F9A /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -186,9 +163,6 @@
 				4903131A1D9F735B00AEAC96 /* Tetris */,
 				490313331D9F735B00AEAC96 /* TetrisTests */,
 				4903133E1D9F735B00AEAC96 /* TetrisUITests */,
-				4925E2B01F831F4E0007C140 /* SpeedTris */,
-				4925E2CB1F831F4F0007C140 /* SpeedTrisTests */,
-				4925E2D61F831F4F0007C140 /* SpeedTrisUITests */,
 				490313191D9F735B00AEAC96 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -219,6 +193,7 @@
 				490313281D9F735B00AEAC96 /* LaunchScreen.storyboard */,
 				49524F641DA3013B002994C1 /* Array2D.swift */,
 				49C2939F1F79D7F6002D6C68 /* ZShape.swift */,
+				4925E2E91F837CA70007C140 /* Sprites.atlas */,
 				490EE55C1DAF182D0001CAF0 /* Block.swift */,
 				4906E9D81F67CCCE0014E288 /* Shape.swift */,
 				4906E9DA1F67E1C90014E288 /* SquareShape.swift */,
@@ -227,7 +202,6 @@
 				4925E2651F8206D50007C140 /* gameboard.png */,
 				4925E2631F81FD4E0007C140 /* gameboard@2x.png */,
 				4925E2581F7ECBB70007C140 /* whitebg@2x.png */,
-				4925E2E71F8365FB0007C140 /* Sprites.atlas */,
 				496EA2851F7A2CD000035F9A /* images.xcassets */,
 				4906E9DC1F689F520014E288 /* TshapeShape.swift */,
 				4906E9DE1F68AF550014E288 /* LineShape.swift */,
@@ -254,40 +228,6 @@
 				490313411D9F735B00AEAC96 /* Info.plist */,
 			);
 			path = TetrisUITests;
-			sourceTree = "<group>";
-		};
-		4925E2B01F831F4E0007C140 /* SpeedTris */ = {
-			isa = PBXGroup;
-			children = (
-				4925E2B11F831F4E0007C140 /* AppDelegate.swift */,
-				4925E2B31F831F4E0007C140 /* GameScene.sks */,
-				4925E2B51F831F4E0007C140 /* Actions.sks */,
-				4925E2B71F831F4E0007C140 /* GameScene.swift */,
-				4925E2B91F831F4E0007C140 /* GameViewController.swift */,
-				4925E2BB1F831F4E0007C140 /* Main.storyboard */,
-				4925E2BE1F831F4E0007C140 /* Assets.xcassets */,
-				4925E2C01F831F4E0007C140 /* LaunchScreen.storyboard */,
-				4925E2C31F831F4E0007C140 /* Info.plist */,
-			);
-			path = SpeedTris;
-			sourceTree = "<group>";
-		};
-		4925E2CB1F831F4F0007C140 /* SpeedTrisTests */ = {
-			isa = PBXGroup;
-			children = (
-				4925E2CC1F831F4F0007C140 /* SpeedTrisTests.swift */,
-				4925E2CE1F831F4F0007C140 /* Info.plist */,
-			);
-			path = SpeedTrisTests;
-			sourceTree = "<group>";
-		};
-		4925E2D61F831F4F0007C140 /* SpeedTrisUITests */ = {
-			isa = PBXGroup;
-			children = (
-				4925E2D71F831F4F0007C140 /* SpeedTrisUITests.swift */,
-				4925E2D91F831F4F0007C140 /* Info.plist */,
-			);
-			path = SpeedTrisUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,7 +413,7 @@
 				4903132A1D9F735B00AEAC96 /* LaunchScreen.storyboard in Resources */,
 				4925E2661F8206D50007C140 /* gameboard.png in Resources */,
 				49524F5F1DA2F22D002994C1 /* Sounds in Resources */,
-				4925E2E81F8365FB0007C140 /* Sprites.atlas in Resources */,
+				4925E2EA1F837CA70007C140 /* Sprites.atlas in Resources */,
 				496EA2861F7A2CD000035F9A /* images.xcassets in Resources */,
 				490313251D9F735B00AEAC96 /* Main.storyboard in Resources */,
 				4925E25C1F7ECBB70007C140 /* whitebg@2x.png in Resources */,
@@ -500,11 +440,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4925E2BD1F831F4E0007C140 /* Main.storyboard in Resources */,
-				4925E2B41F831F4E0007C140 /* GameScene.sks in Resources */,
-				4925E2BF1F831F4E0007C140 /* Assets.xcassets in Resources */,
-				4925E2C21F831F4E0007C140 /* LaunchScreen.storyboard in Resources */,
-				4925E2B61F831F4E0007C140 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,9 +501,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4925E2B81F831F4E0007C140 /* GameScene.swift in Sources */,
-				4925E2BA1F831F4E0007C140 /* GameViewController.swift in Sources */,
-				4925E2B21F831F4E0007C140 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,7 +508,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4925E2CD1F831F4F0007C140 /* SpeedTrisTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +515,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4925E2D81F831F4F0007C140 /* SpeedTrisUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,22 +561,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				490313291D9F735B00AEAC96 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		4925E2BB1F831F4E0007C140 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4925E2BC1F831F4E0007C140 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4925E2C01F831F4E0007C140 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4925E2C11F831F4E0007C140 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -861,7 +775,6 @@
 		4925E2DE1F831F4F0007C140 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -880,7 +793,6 @@
 		4925E2DF1F831F4F0007C140 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -897,7 +809,6 @@
 		4925E2E11F831F4F0007C140 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -916,7 +827,6 @@
 		4925E2E21F831F4F0007C140 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = "";
