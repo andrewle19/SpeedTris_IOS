@@ -9,14 +9,15 @@
 import SpriteKit
 
 // Define the size of each block sprite 20.0 X 20.0
-let BlockSize:CGFloat = 20.0
+var BlockSize:CGFloat = 20.0
 
 //defining a constant this represents the slowest speed the pieces drop 6/10ths of a second
 let TickLengthLevelOne = TimeInterval(550)
 
 class GameScene: SKScene {
     
-    
+    // model of current device
+    let model = UIDevice.current.model
     // Layer Position is an offset from the edge of the screen
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
@@ -43,6 +44,18 @@ class GameScene: SKScene {
         super.init(size: size) // super comes from super class. init is to intialize without parameters
 
         print(size)
+
+        
+        // checks model to determine block size
+        if(model == "iPad")
+        {
+            BlockSize = 40.0
+        }
+        else
+        {
+            BlockSize = 20.0
+        }
+        
         
         print("Scene Init")
         self.backgroundColor = UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
@@ -63,8 +76,10 @@ class GameScene: SKScene {
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard.png")
         let gameBoard = SKSpriteNode(texture: gameBoardTexture, size: CGSize(width: BlockSize * CGFloat(ColumnNum), height: BlockSize * CGFloat(RowNum)))
+        
         gameBoard.anchorPoint = CGPoint(x:0, y:1.0)
         gameBoard.position = LayerPosition
+    
         
         
        

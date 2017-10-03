@@ -21,20 +21,47 @@ enum BlockColor: Int, CustomStringConvertible {
     // accessing it a code bloc generates its value each time like a get function being called
     // outputs file name for each of the colors
     var spriteName: String {
-        switch self {
-        case .blue:
-            return "blue"
-        case .orange:
-            return "orange"
-        case .purple:
-            return "purple"
-        case .red:
-            return "red"
-        case .teal:
-            return "teal"
-        case .yellow:
-            return "yellow"
+    
+        let model = UIDevice.current.model
+
+        if (model == "iPad")
+        {
+            print("here")
+            switch self
+            {
+            case .blue:
+                return "blue2x"
+            case .orange:
+                return "orange2x"
+            case .purple:
+                return "purple2x"
+            case .red:
+                return "red2x"
+            case .teal:
+                return "teal2x"
+            case .yellow:
+                return "yellow2x"
+            }
         }
+        else
+        {
+            switch self
+            {
+            case .blue:
+                return "blue"
+            case .orange:
+                return "orange"
+            case .purple:
+                return "purple"
+            case .red:
+                return "red"
+            case .teal:
+                return "teal"
+            case .yellow:
+                return "yellow"
+            }
+        }
+
     }
     
     // computed property returns the sprite color to describe the color

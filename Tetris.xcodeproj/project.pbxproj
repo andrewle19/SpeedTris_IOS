@@ -35,8 +35,8 @@
 		4925E2C21F831F4E0007C140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2C01F831F4E0007C140 /* LaunchScreen.storyboard */; };
 		4925E2CD1F831F4F0007C140 /* SpeedTrisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2CC1F831F4F0007C140 /* SpeedTrisTests.swift */; };
 		4925E2D81F831F4F0007C140 /* SpeedTrisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4925E2D71F831F4F0007C140 /* SpeedTrisUITests.swift */; };
+		4925E2E81F8365FB0007C140 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2E71F8365FB0007C140 /* Sprites.atlas */; };
 		49524F5F1DA2F22D002994C1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 49524F5E1DA2F22D002994C1 /* Sounds */; };
-		49524F611DA2F285002994C1 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 49524F601DA2F285002994C1 /* Sprites.atlas */; };
 		49524F651DA3013B002994C1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49524F641DA3013B002994C1 /* Array2D.swift */; };
 		496EA2861F7A2CD000035F9A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496EA2851F7A2CD000035F9A /* images.xcassets */; };
 		49C293A01F79D7F6002D6C68 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2939F1F79D7F6002D6C68 /* ZShape.swift */; };
@@ -124,8 +124,8 @@
 		4925E2D31F831F4F0007C140 /* SpeedTrisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTrisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4925E2D71F831F4F0007C140 /* SpeedTrisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTrisUITests.swift; sourceTree = "<group>"; };
 		4925E2D91F831F4F0007C140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4925E2E71F8365FB0007C140 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		49524F5E1DA2F22D002994C1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		49524F601DA2F285002994C1 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		49524F641DA3013B002994C1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		496EA2851F7A2CD000035F9A /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		49C2939F1F79D7F6002D6C68 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
@@ -209,7 +209,6 @@
 		4903131A1D9F735B00AEAC96 /* Tetris */ = {
 			isa = PBXGroup;
 			children = (
-				49524F601DA2F285002994C1 /* Sprites.atlas */,
 				49524F5E1DA2F22D002994C1 /* Sounds */,
 				4903131B1D9F735B00AEAC96 /* AppDelegate.swift */,
 				490313211D9F735B00AEAC96 /* GameViewController.swift */,
@@ -228,6 +227,7 @@
 				4925E2651F8206D50007C140 /* gameboard.png */,
 				4925E2631F81FD4E0007C140 /* gameboard@2x.png */,
 				4925E2581F7ECBB70007C140 /* whitebg@2x.png */,
+				4925E2E71F8365FB0007C140 /* Sprites.atlas */,
 				496EA2851F7A2CD000035F9A /* images.xcassets */,
 				4906E9DC1F689F520014E288 /* TshapeShape.swift */,
 				4906E9DE1F68AF550014E288 /* LineShape.swift */,
@@ -473,10 +473,10 @@
 				4903132A1D9F735B00AEAC96 /* LaunchScreen.storyboard in Resources */,
 				4925E2661F8206D50007C140 /* gameboard.png in Resources */,
 				49524F5F1DA2F22D002994C1 /* Sounds in Resources */,
+				4925E2E81F8365FB0007C140 /* Sprites.atlas in Resources */,
 				496EA2861F7A2CD000035F9A /* images.xcassets in Resources */,
 				490313251D9F735B00AEAC96 /* Main.storyboard in Resources */,
 				4925E25C1F7ECBB70007C140 /* whitebg@2x.png in Resources */,
-				49524F611DA2F285002994C1 /* Sprites.atlas in Resources */,
 				4925E2681F8206DF0007C140 /* gameboard@3x.png in Resources */,
 				4925E2641F81FD4E0007C140 /* gameboard@2x.png in Resources */,
 			);
@@ -747,6 +747,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tetris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZDreams.Tetris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -763,6 +764,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tetris/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZDreams.Tetris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -974,6 +976,7 @@
 				4925E2DC1F831F4F0007C140 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4925E2DD1F831F4F0007C140 /* Build configuration list for PBXNativeTarget "SpeedTrisTests" */ = {
 			isa = XCConfigurationList;
@@ -982,6 +985,7 @@
 				4925E2DF1F831F4F0007C140 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4925E2E01F831F4F0007C140 /* Build configuration list for PBXNativeTarget "SpeedTrisUITests" */ = {
 			isa = XCConfigurationList;
@@ -990,6 +994,7 @@
 				4925E2E21F831F4F0007C140 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
