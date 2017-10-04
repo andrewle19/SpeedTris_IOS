@@ -22,11 +22,11 @@ enum BlockColor: Int, CustomStringConvertible {
     // outputs file name for each of the colors
     var spriteName: String {
     
+        // cheks the model to determine which sprites to use
         let model = UIDevice.current.model
 
         if (model == "iPad")
         {
-            print("here")
             switch self
             {
             case .blue:

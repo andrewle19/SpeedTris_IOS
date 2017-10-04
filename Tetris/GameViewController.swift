@@ -9,13 +9,40 @@
 import UIKit
 import SpriteKit
 
+
 class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerDelegate {
 
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
-    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+    var start : Bool = false
+    // First function to load in
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        // configure the view
+        let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
+        skView.isMultipleTouchEnabled = false;
+        
+        // create and configure the scene
+        scene = GameScene(size: skView.bounds.size)
+        scene.scaleMode = .aspectFill
+        // set the enclosure property of Tick in game scene
+        scene.tick = didTick
+        
+        tetris = Tetris()
+        tetris.delegate = self
+        
+        scene.displayMsg()
+        // display the scene
+        skView.presentScene(scene)
+        
+        
+
+        
+        
+    }
     
     // keep track of last point on screen which movement occured
     var panPointReference: CGPoint?
@@ -55,6 +82,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     {
         tetris.dropShape()
     }
+    
     // allows gesture recognizers to work in tandem with one another
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool
     {
@@ -82,29 +110,6 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     }
     
     
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        // configure the view
-        let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
-        skView.isMultipleTouchEnabled = false;
-    
-        // create and configure the scene
-        scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFill
-        // set the enclosure property of Tick in game scene
-        scene.tick = didTick
-        
-        tetris = Tetris()
-        tetris.delegate = self
-        tetris.beginGame()
-
-        // display the scene
-        skView.presentScene(scene)
-        
-
-    }
     // hide the task bar
     override var prefersStatusBarHidden : Bool {
         return true
@@ -115,11 +120,22 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         tetris.letShapeFall()
     }
     
+   
+    
     
     // when user taps on screen
     @IBAction func didTap(_ sender: UITapGestureRecognizer)
     {
-        tetris.rotateShape()
+        if (start == false)
+        {
+            
+            start = true
+            tetris.beginGame()
+        }
+        else
+        {
+            tetris.rotateShape()
+        }
     }
     
     
@@ -133,6 +149,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         }
         
         self.scene.addPreviewShapeToScene(shape: newShapes.nextShape!){}
+        
         self.scene.movePreviewShape(shape: fallingShape)
         {
             
@@ -150,7 +167,6 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scoreLabel.text = "\(tetris.score)"
         scene.tickLengthMillis = TickLengthLevelOne
         
-        scene.tickLengthMillis = TickLengthLevelOne
         // following is false when restarting a new game
         if tetris.nextShape != nil && tetris.nextShape!.blocks[0].sprite == nil
         {
@@ -163,6 +179,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         }
     }
     
+    
     func gameDidEnd(tetris: Tetris)
     {
         view.isUserInteractionEnabled = false
@@ -171,8 +188,10 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // destroy all blocks when lose then start game over again
         scene.animateCollapsingLines(linesToRemove: tetris.removeAllBlocks(), fallenBlocks: tetris.removeAllBlocks())
         {
-            tetris.beginGame()
+            self.view.isUserInteractionEnabled = true
+            self.start = false
         }
+    
     }
     
     func gameDidLevelUp(tetris: Tetris)

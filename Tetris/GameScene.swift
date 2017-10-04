@@ -90,6 +90,9 @@ class GameScene: SKScene {
         
         gameLayer.addChild(shapeLayer) // add the shape layer over the gameBoard layer
         
+        // Background sound plays forever
+        run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/Background.mp3", waitForCompletion: true)))
+        
         /*
         let text = SKLabelNode(fontNamed: "Helvetica")
         text.text = "TAP to Play!"
@@ -122,6 +125,19 @@ class GameScene: SKScene {
             tick?()
         }
     }
+    
+    
+    func displayMsg()
+    {
+        scale = size
+        let Play = SKLabelNode(fontNamed: "Helvetica")
+        Play.text = "Tap to Play!"
+        Play.fontColor = UIColor.white
+        Play.fontSize = 100
+        Play.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.addChild(Play)
+    }
+    
     
     //provide accessor methods that let external classes to stop and start
     func startTicking()
@@ -190,7 +206,7 @@ class GameScene: SKScene {
     func movePreviewShape(shape:Shape,completion:@escaping () -> ())
     {
         
-        print("move Preview called")
+        print(shape)
         for block in shape.blocks
         {
             let sprite = block.sprite!
@@ -208,7 +224,7 @@ class GameScene: SKScene {
         run(SKAction.wait(forDuration: 0.2),completion:completion)
     }
     
-    
+    // redraws shape when shapes are destroyed
     func redrawShape(shape:Shape, completion:@escaping () -> ())
     {
         for block in shape.blocks

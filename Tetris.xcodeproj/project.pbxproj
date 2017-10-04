@@ -32,7 +32,7 @@
 		49C293A01F79D7F6002D6C68 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2939F1F79D7F6002D6C68 /* ZShape.swift */; };
 		49E776271F6A86E500D1574E /* JshapeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776261F6A86E500D1574E /* JshapeShape.swift */; };
 		49E776291F6A88BA00D1574E /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776281F6A88BA00D1574E /* SShape.swift */; };
-		49EFBD6E1F712EC90045A463 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EFBD6D1F712EC90045A463 /* GameController.swift */; };
+		49EFBD6E1F712EC90045A463 /* SpeedTris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EFBD6D1F712EC90045A463 /* SpeedTris.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,7 +108,7 @@
 		49C2939F1F79D7F6002D6C68 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		49E776261F6A86E500D1574E /* JshapeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JshapeShape.swift; sourceTree = "<group>"; };
 		49E776281F6A88BA00D1574E /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
-		49EFBD6D1F712EC90045A463 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		49EFBD6D1F712EC90045A463 /* SpeedTris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedTris.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 				4903131B1D9F735B00AEAC96 /* AppDelegate.swift */,
 				490313211D9F735B00AEAC96 /* GameViewController.swift */,
 				4903131F1D9F735B00AEAC96 /* GameScene.swift */,
-				49EFBD6D1F712EC90045A463 /* GameController.swift */,
+				49EFBD6D1F712EC90045A463 /* SpeedTris.swift */,
 				4903132B1D9F735B00AEAC96 /* Info.plist */,
 				490313231D9F735B00AEAC96 /* Main.storyboard */,
 				490313281D9F735B00AEAC96 /* LaunchScreen.storyboard */,
@@ -477,7 +477,7 @@
 				49C293A01F79D7F6002D6C68 /* ZShape.swift in Sources */,
 				490313221D9F735B00AEAC96 /* GameViewController.swift in Sources */,
 				4903131C1D9F735B00AEAC96 /* AppDelegate.swift in Sources */,
-				49EFBD6E1F712EC90045A463 /* GameController.swift in Sources */,
+				49EFBD6E1F712EC90045A463 /* SpeedTris.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

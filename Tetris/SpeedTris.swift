@@ -24,6 +24,7 @@ let PreviewRow = 1
 let PointsPerLine = 10
 let LevelThreshold = 100
 
+
 // checks whether the user is making legal moves and reacts acordingly (RULES)
 protocol TetrisDelegate {
     // called when current round of Tetris ends
@@ -53,7 +54,7 @@ class Tetris
     var score = 0
     var level = 1
     var pointsEarned = 0
-    
+    var start : Bool = false
     // initalize the game
     init()
     {
@@ -61,19 +62,27 @@ class Tetris
         nextShape = nil
         blockArray = Array2D<Block>(columns: ColumnNum,rows: RowNum)
     }
-    
+    func pause()
+    {
+         self.start = false
+    }
+    func unpause()
+    {
+        self.start = true
+    }
     // when game begins the next shape will be chosen if it hasnt already
     func beginGame()
     {
+        
         if(nextShape == nil)
         {
             nextShape = Shape.random(startingColumn: PreviewColumn, startingRow: PreviewRow)
         }
         delegate?.gameDidBegin(tetris: self)
+        
     }
     
-    
-    
+        
     //assigns falling shape the new shape
     func newShape() -> (fallingShape:Shape?,nextShape:Shape?)
     {
@@ -271,6 +280,8 @@ class Tetris
         
         return false
     }
+    
+
     
     // ends game
     func endGame()

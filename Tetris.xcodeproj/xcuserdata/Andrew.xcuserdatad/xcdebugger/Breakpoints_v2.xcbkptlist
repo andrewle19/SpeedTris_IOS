@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameScene.swift"
-            timestampString = "528704147.819762"
+            timestampString = "528851451.344971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "redrawShape(shape:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameScene.swift"
-            timestampString = "528704147.819762"
+            timestampString = "528851451.344971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "241"
+            endingLineNumber = "241"
             landmarkName = "redrawShape(shape:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -169,90 +169,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tetris/GameViewController.swift"
-            timestampString = "528108380.158726"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "GameViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tetris.GameViewController.tetris.getter : Swift.ImplicitlyUnwrappedOptional&lt;Tetris.Tetris&gt;"
-                  moduleName = "Tetris"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/Swift/Tetris/Tetris/GameViewController.swift"
-                  timestampString = "527558971.65613"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "35">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tetris.GameViewController.tetris.setter : Swift.ImplicitlyUnwrappedOptional&lt;Tetris.Tetris&gt;"
-                  moduleName = "Tetris"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/Swift/Tetris/Tetris/GameViewController.swift"
-                  timestampString = "527558971.689497"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "61">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tetris.GameViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Tetris.GameViewController"
-                  moduleName = "Tetris"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/Swift/Tetris/Tetris/GameViewController.swift"
-                  timestampString = "527558971.694845"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Tetris.GameViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;Tetris.GameViewController&gt;"
-                  moduleName = "Tetris"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Andrew/Documents/Swift/Tetris/Tetris/GameViewController.swift"
-                  timestampString = "527558971.699142"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Tetris/GameScene.swift"
-            timestampString = "528704147.819762"
+            timestampString = "528851451.344971"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "movePreviewShape(shape:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -280,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameController.swift"
-            timestampString = "528405963.906096"
+            timestampString = "528801792.284714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "newShape()"
             landmarkType = "7">
          </BreakpointContent>
@@ -296,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameController.swift"
-            timestampString = "528405963.906096"
+            timestampString = "528801792.284714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "356"
-            endingLineNumber = "356"
+            startingLineNumber = "359"
+            endingLineNumber = "359"
             landmarkName = "removeCompletedLines()"
             landmarkType = "7">
          </BreakpointContent>
@@ -312,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameController.swift"
-            timestampString = "528405963.906096"
+            timestampString = "528801792.284714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "removeCompletedLines()"
             landmarkType = "7">
          </BreakpointContent>
@@ -328,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameScene.swift"
-            timestampString = "528704147.819762"
+            timestampString = "528847122.280228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "update(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -344,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameViewController.swift"
-            timestampString = "528116422.36396"
+            timestampString = "528851598.804022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "didSwipe(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -360,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameViewController.swift"
-            timestampString = "528687269.166705"
+            timestampString = "528851598.804022"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "gameDidEnd(tetris:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -376,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tetris/GameController.swift"
-            timestampString = "528405739.521251"
+            timestampString = "528801792.284714"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "Tetris"
             landmarkType = "3">
          </BreakpointContent>
