@@ -63,13 +63,9 @@ class GameScene: SKScene {
         self.anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
         
         
-        /*
-        let background = SKSpriteNode(imageNamed: "background") // makes the background image our background
-        
-        background.position = CGPoint(x: 0, y: 0)
-        background.anchorPoint = CGPoint(x: 0, y: 1.0)
-        addChild(background)
-        */
+       
+
+    
        
         
         addChild(gameLayer) // adds the game layer
@@ -93,14 +89,7 @@ class GameScene: SKScene {
         // Background sound plays forever
         run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/Background.mp3", waitForCompletion: true)))
         
-        /*
-        let text = SKLabelNode(fontNamed: "Helvetica")
-        text.text = "TAP to Play!"
-        text.fontSize = 50
-        text.fontColor = SKColor.white
-        text.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.addChild(text)
-        */
+        
         
     }
     
@@ -126,11 +115,17 @@ class GameScene: SKScene {
         }
     }
     
-    
-    func displayMsg()
+    // removes the tap to play game message
+    func removePlayMsg()
     {
-        scale = size
+        scene?.childNode(withName: "Play")?.removeFromParent()
+    }
+    
+    // Display a message to user telling them to tap to play game
+    func displayPlayMsg()
+    {
         let Play = SKLabelNode(fontNamed: "Helvetica")
+        Play.name = "Play"
         Play.text = "Tap to Play!"
         Play.fontColor = UIColor.white
         Play.fontSize = 100

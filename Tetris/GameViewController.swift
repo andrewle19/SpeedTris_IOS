@@ -16,7 +16,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     var tetris: Tetris!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
-    var start : Bool = false
+    var start : Bool = false // variable to descide if game has started yet
+    
     // First function to load in
     override func viewDidLoad() {
         
@@ -34,7 +35,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         tetris = Tetris()
         tetris.delegate = self
         
-        scene.displayMsg()
+        // displays the scene
+        scene.displayPlayMsg()
         // display the scene
         skView.presentScene(scene)
         
@@ -126,10 +128,12 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     // when user taps on screen
     @IBAction func didTap(_ sender: UITapGestureRecognizer)
     {
+        // if the game hasnt started on tap start the game
         if (start == false)
         {
             
             start = true
+            scene.removePlayMsg()
             tetris.beginGame()
         }
         else
@@ -189,6 +193,11 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.animateCollapsingLines(linesToRemove: tetris.removeAllBlocks(), fallenBlocks: tetris.removeAllBlocks())
         {
             self.view.isUserInteractionEnabled = true
+            
+            // displays the play msg again
+            self.scene.displayPlayMsg()
+            
+            // game has not started yet
             self.start = false
         }
     

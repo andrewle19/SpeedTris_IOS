@@ -10,7 +10,7 @@ import UIKit
 
 // define the number of rows and colums for game view
 let ColumnNum = 10
-let RowNum = 20
+let RowNum = 25
 
 // the starting location of blocks
 let StartingColumn = 4
