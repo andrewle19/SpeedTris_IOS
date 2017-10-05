@@ -21,6 +21,12 @@ class GameScene: SKScene {
     // Layer Position is an offset from the edge of the screen
     let gameLayer = SKNode()
     let shapeLayer = SKNode()
+    
+    // labels for score and level
+    let scoreLabel = SKLabelNode(fontNamed: "Helvetica")
+    let levelLabel = SKLabelNode(fontNamed: "Helvetica")
+
+
     let LayerPosition = CGPoint(x: 6, y: -6)
     
     //current tick length set to default tick length, lastTick keeps track the last time we experienced a tick,
@@ -33,6 +39,8 @@ class GameScene: SKScene {
     
     var textureCache = Dictionary<String,SKTexture>()
     
+    var scaleFactor : CGFloat = 0 // scale the labels by this much
+    
     required init(coder aDecoder: NSCoder)
     {
         fatalError("NSCoder not supported")
@@ -44,16 +52,17 @@ class GameScene: SKScene {
         super.init(size: size) // super comes from super class. init is to intialize without parameters
 
         print(size)
-
         
-        // checks model to determine block size
+        // checks model to determine block size and scale factor
         if(model == "iPad")
         {
             BlockSize = 40.0
+            scaleFactor = 2
         }
         else
         {
             BlockSize = 20.0
+            scaleFactor = 1
         }
         
         
@@ -62,11 +71,9 @@ class GameScene: SKScene {
 
         self.anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
         
-        
-       
-
     
        
+        
         
         addChild(gameLayer) // adds the game layer
         
@@ -77,14 +84,47 @@ class GameScene: SKScene {
         gameBoard.position = LayerPosition
     
         
-        
-       
-        
         shapeLayer.position = LayerPosition
-        
         shapeLayer.addChild(gameBoard) // add the gameBoard layer
-        
         gameLayer.addChild(shapeLayer) // add the shape layer over the gameBoard layer
+        
+        
+         // add the text label for Score
+        let scoreTextLabel = SKLabelNode(fontNamed: "Helvetica")
+        scoreTextLabel.text = "SCORE"
+        scoreTextLabel.fontColor = UIColor(red: 0, green: 0.73, blue: 1, alpha: 1)
+        scoreTextLabel.fontSize = 30
+        scoreTextLabel.fontSize *= scaleFactor
+        // position the text label
+        scoreTextLabel.position = pointForColumn(column: 13, row: 7)
+        gameLayer.addChild(scoreTextLabel)
+        
+        // setting the score label
+        scoreLabel.text = "0"
+        scoreLabel.fontColor = UIColor(red: 0, green: 0.84, blue: 0, alpha: 1)
+        scoreLabel.fontSize = 35
+        scoreLabel.fontSize *= scaleFactor
+        scoreLabel.position = pointForColumn(column: 13, row: 9)
+        gameLayer.addChild(scoreLabel)
+        
+        // add the text label for LEVEL
+        let levelTextLabel = SKLabelNode(fontNamed: "Helvetica")
+        levelTextLabel.text = "LEVEL"
+        levelTextLabel.fontColor = UIColor(red: 0, green: 0.73, blue: 1, alpha: 1)
+        levelTextLabel.fontSize = 31
+        levelTextLabel.fontSize *= scaleFactor
+        // positions the label
+        levelTextLabel.position = pointForColumn(column: 13, row: 13)
+        gameLayer.addChild(levelTextLabel)
+        
+        // setting the level label
+        levelLabel.text = "1"
+        levelLabel.fontColor = UIColor(red: 1, green: 0, blue: 0.05, alpha: 1)
+        levelLabel.fontSize = 35
+        levelLabel.fontSize *= scaleFactor
+        levelLabel.position = pointForColumn(column: 13, row: 15)
+        gameLayer.addChild(levelLabel)
+        
         
         // Background sound plays forever
         run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/Background.mp3", waitForCompletion: true)))
@@ -128,11 +168,24 @@ class GameScene: SKScene {
         Play.name = "Play"
         Play.text = "Tap to Play!"
         Play.fontColor = UIColor.white
-        Play.fontSize = 100
-        Play.position = CGPoint(x: frame.midX, y: frame.midY)
+        Play.fontSize = 50
+        
+       ScaleFontToFit(labelNode: Play, rect: CGRect(origin: CGPoint(x: 0, y: 0), size: size))
+        Play.position = CGPoint(x: frame.midX, y: frame.midY+10)
+        
         self.addChild(Play)
     }
     
+    // adjusts the font size to screen
+    func ScaleFontToFit(labelNode:SKLabelNode, rect:CGRect) {
+        
+        // Determine the font scaling factor that should let the label text fit in the given rectangle.
+        let scalingFactor = min(rect.width / labelNode.frame.width, rect.height / labelNode.frame.height)
+        
+        // Change the fontSize.
+        labelNode.fontSize *= scalingFactor
+        
+    }
     
     //provide accessor methods that let external classes to stop and start
     func startTicking()
@@ -154,7 +207,7 @@ class GameScene: SKScene {
 
     }
     
-    
+    // add the preview shape onto the scene
     func addPreviewShapeToScene(shape:Shape,completion:@escaping ()->())
     {
         for block in shape.blocks
@@ -207,7 +260,6 @@ class GameScene: SKScene {
             let sprite = block.sprite!
             
             let moveTo = pointForColumn(column: block.column, row: block.row)
-            
             let moveToAction: SKAction = SKAction.move(to: moveTo, duration: 0.2)
             
             moveToAction.timingMode = .easeOut

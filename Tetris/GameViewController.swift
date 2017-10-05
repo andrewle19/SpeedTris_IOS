@@ -14,7 +14,6 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
 
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
-    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
     var start : Bool = false // variable to descide if game has started yet
     
@@ -167,8 +166,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     func gameDidBegin(tetris: Tetris)
     {
         // reset scores and speed of ticks
-        levelLabel.text = "\(tetris.level)"
-        scoreLabel.text = "\(tetris.score)"
+        scene.levelLabel.text = "\(tetris.level)"
+        scene.scoreLabel.text = "\(tetris.score)"
         scene.tickLengthMillis = TickLengthLevelOne
         
         // following is false when restarting a new game
@@ -207,7 +206,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     {
         
         // as you level up the speed of the blocks will drop faster
-        levelLabel.text = "\(tetris.level)"
+        scene.levelLabel.text = "\(tetris.level)"
         
         if scene.tickLengthMillis > 250
         {
@@ -246,7 +245,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         
         if removedLines.linesRemoved.count > 0
         {
-            self.scoreLabel.text = "\(tetris.score)"
+            scene.scoreLabel.text = "\(tetris.score)"
             // animate the lines exploding
             scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks: removedLines.fallenBlocks)
             {
