@@ -25,7 +25,7 @@ class GameScene: SKScene {
     // labels for score and level
     let scoreLabel = SKLabelNode(fontNamed: "Helvetica")
     let levelLabel = SKLabelNode(fontNamed: "Helvetica")
-
+    let highScoreLabel = SKLabelNode(fontNamed: "Helvetica")
 
     let LayerPosition = CGPoint(x: 6, y: -6)
     
@@ -68,13 +68,9 @@ class GameScene: SKScene {
         
         print("Scene Init")
         self.backgroundColor = UIColor(red: 0.31, green: 0.31, blue: 0.31, alpha: 1)
-
         self.anchorPoint = CGPoint(x: 0, y: 1.0) // set the anchor point 0:1 is the top left corner
         
     
-       
-        
-        
         addChild(gameLayer) // adds the game layer
         
         let gameBoardTexture = SKTexture(imageNamed: "gameboard.png")
@@ -125,6 +121,24 @@ class GameScene: SKScene {
         levelLabel.position = pointForColumn(column: 13, row: 15)
         gameLayer.addChild(levelLabel)
         
+        // add the  label for HIGHSCORE
+        let highScoreTextLabel = SKLabelNode(fontNamed: "Helvetica")
+        highScoreTextLabel.text = "HIGHSCORE"
+        highScoreTextLabel.fontColor = UIColor(red: 0, green: 0.73, blue: 1, alpha: 1)
+        highScoreTextLabel.fontSize = 27
+        highScoreTextLabel.fontSize *= scaleFactor
+        // positions the label
+        highScoreTextLabel.position = pointForColumn(column: 14, row: 17)
+        gameLayer.addChild(highScoreTextLabel)
+        
+        // setting the highscore label
+        highScoreLabel.text = "0"
+        highScoreLabel.fontColor = UIColor(red: 1, green: 0, blue: 0.05, alpha: 1)
+        highScoreLabel.fontSize = 35
+        highScoreLabel.fontSize *= scaleFactor
+        highScoreLabel.position = pointForColumn(column: 13, row: 19)
+        gameLayer.addChild(highScoreLabel)
+        
         
         // Background sound plays forever
         run(SKAction.repeatForever(SKAction.playSoundFileNamed("Sounds/Background.mp3", waitForCompletion: true)))
@@ -153,6 +167,13 @@ class GameScene: SKScene {
             // check to see if tick exists and allows us to invoke it at no parameters
             tick?()
         }
+    }
+    
+    // plays sound of string specefied
+    
+    func playSound(sound:String)
+    {
+        run(SKAction.playSoundFileNamed(sound, waitForCompletion: false))
     }
     
     // removes the tap to play game message

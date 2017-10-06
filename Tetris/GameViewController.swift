@@ -4,7 +4,7 @@
 //
 //  Created by andrew le on 9/30/16.
 //  Copyright (c) 2016 ZDreams. All rights reserved.
-///Users/Andrew/Downloads/Blocs/Sounds
+/// Assets by SwiftTres
 
 import UIKit
 import SpriteKit
@@ -14,7 +14,6 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
 
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
-    @IBOutlet weak var levelLabel: UILabel!
     var start : Bool = false // variable to descide if game has started yet
     
     // First function to load in
@@ -33,7 +32,6 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         
         tetris = Tetris()
         tetris.delegate = self
-        
         // displays the scene
         scene.displayPlayMsg()
         // display the scene
@@ -168,6 +166,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // reset scores and speed of ticks
         scene.levelLabel.text = "\(tetris.level)"
         scene.scoreLabel.text = "\(tetris.score)"
+        scene.highScoreLabel.text = "\(tetris.highscore)"
+
         scene.tickLengthMillis = TickLengthLevelOne
         
         // following is false when restarting a new game
@@ -193,6 +193,9 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         {
             self.view.isUserInteractionEnabled = true
             
+            // saves the highscore of the app
+            tetris.saveHighScore()
+            print("user default value: \(UserDefaults.standard.value(forKey: "HIGHSCORE")!) ")
             // displays the play msg again
             self.scene.displayPlayMsg()
             
@@ -232,6 +235,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.redrawShape(shape: tetris.fallingShape!){
             tetris.letShapeFall()
         }
+        scene.playSound(sound: "Sounds/drop.mp3")
     }
     
     func gameShapeDidLand(tetris: Tetris)
@@ -246,6 +250,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         if removedLines.linesRemoved.count > 0
         {
             scene.scoreLabel.text = "\(tetris.score)"
+            scene.highScoreLabel.text = "\(tetris.highscore)"
+          
             // animate the lines exploding
             scene.animateCollapsingLines(linesToRemove: removedLines.linesRemoved, fallenBlocks: removedLines.fallenBlocks)
             {

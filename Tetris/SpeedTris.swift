@@ -53,14 +53,27 @@ class Tetris
     // starting score and level and level threshold
     var score = 0
     var level = 1
+    var highscore = 0;
     var pointsEarned = 0
     var start : Bool = false
+    
     // initalize the game
     init()
     {
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: ColumnNum,rows: RowNum)
+        
+        if (UserDefaults.standard.bool(forKey: "HIGHSCORE"))
+        {
+            print("Has High Score")
+            highscore = UserDefaults.standard.value(forKey: "HIGHSCORE") as! Int
+        }
+        else
+        {
+            print("Set High Score")
+            saveHighScore()
+        }
     }
     func pause()
     {
@@ -342,8 +355,13 @@ class Tetris
         
         score += pointsEarned
         
+        if (score > highscore)
+        {
+            highscore = score
+        }
+        
         // level up inform the delegate
-        if score >= LevelThreshold * level
+        if Double(score) >= Double(LevelThreshold) * (Double(level)+0.5)
         {
             level += 1
             delegate?.gameDidLevelUp(tetris: self)
@@ -412,5 +430,9 @@ class Tetris
         return allBlocks
     }
 
+    func saveHighScore()
+    {
+        UserDefaults.standard.set(highscore, forKey: "HIGHSCORE")
+    }
     
 }
