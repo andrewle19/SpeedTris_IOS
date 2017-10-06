@@ -64,14 +64,13 @@ class Tetris
         nextShape = nil
         blockArray = Array2D<Block>(columns: ColumnNum,rows: RowNum)
         
+        // checks if there is a high score avaliable
         if (UserDefaults.standard.bool(forKey: "HIGHSCORE"))
         {
-            print("Has High Score")
             highscore = UserDefaults.standard.value(forKey: "HIGHSCORE") as! Int
         }
         else
         {
-            print("Set High Score")
             saveHighScore()
         }
     }

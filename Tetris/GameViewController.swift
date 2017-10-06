@@ -193,9 +193,11 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         {
             self.view.isUserInteractionEnabled = true
             
-            // saves the highscore of the app
+            // saves the local highscore 
             tetris.saveHighScore()
+           
             print("user default value: \(UserDefaults.standard.value(forKey: "HIGHSCORE")!) ")
+            
             // displays the play msg again
             self.scene.displayPlayMsg()
             

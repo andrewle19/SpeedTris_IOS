@@ -84,6 +84,31 @@ class GameScene: SKScene {
         shapeLayer.addChild(gameBoard) // add the gameBoard layer
         gameLayer.addChild(shapeLayer) // add the shape layer over the gameBoard layer
         
+        // add the  label for HIGHSCORE
+        let highScoreTextLabel = SKLabelNode(fontNamed: "Helvetica")
+        highScoreTextLabel.text = "HIGH-SCORE"
+        highScoreTextLabel.fontColor = UIColor(red: 0, green: 0.73, blue: 1, alpha: 1)
+        highScoreTextLabel.fontSize = 25
+        highScoreTextLabel.fontSize *= scaleFactor
+        // positions the label
+        highScoreTextLabel.position = pointForColumn(column: 14, row: 7)
+        gameLayer.addChild(highScoreTextLabel)
+        
+        // setting the highscore label
+        if(UserDefaults.standard.bool(forKey: "HIGHSCORE"))
+        {
+            highScoreLabel.text = "\(UserDefaults.standard.value(forKey: "HIGHSCORE")!)"
+        }
+        else
+        {
+            highScoreLabel.text = "0"
+        }
+        highScoreLabel.fontColor = UIColor(red: 1, green: 0.84, blue: 0, alpha: 1)
+        highScoreLabel.fontSize = 35
+        highScoreLabel.fontSize *= scaleFactor
+        highScoreLabel.position = pointForColumn(column: 14, row: 9)
+        gameLayer.addChild(highScoreLabel)
+
         
          // add the text label for Score
         let scoreTextLabel = SKLabelNode(fontNamed: "Helvetica")
@@ -92,7 +117,7 @@ class GameScene: SKScene {
         scoreTextLabel.fontSize = 30
         scoreTextLabel.fontSize *= scaleFactor
         // position the text label
-        scoreTextLabel.position = pointForColumn(column: 13, row: 7)
+        scoreTextLabel.position = pointForColumn(column: 14, row: 12)
         gameLayer.addChild(scoreTextLabel)
         
         // setting the score label
@@ -100,7 +125,7 @@ class GameScene: SKScene {
         scoreLabel.fontColor = UIColor(red: 0, green: 0.84, blue: 0, alpha: 1)
         scoreLabel.fontSize = 35
         scoreLabel.fontSize *= scaleFactor
-        scoreLabel.position = pointForColumn(column: 13, row: 9)
+        scoreLabel.position = pointForColumn(column: 14, row: 14)
         gameLayer.addChild(scoreLabel)
         
         // add the text label for LEVEL
@@ -110,7 +135,7 @@ class GameScene: SKScene {
         levelTextLabel.fontSize = 31
         levelTextLabel.fontSize *= scaleFactor
         // positions the label
-        levelTextLabel.position = pointForColumn(column: 13, row: 13)
+        levelTextLabel.position = pointForColumn(column: 14, row: 17)
         gameLayer.addChild(levelTextLabel)
         
         // setting the level label
@@ -118,26 +143,9 @@ class GameScene: SKScene {
         levelLabel.fontColor = UIColor(red: 1, green: 0, blue: 0.05, alpha: 1)
         levelLabel.fontSize = 35
         levelLabel.fontSize *= scaleFactor
-        levelLabel.position = pointForColumn(column: 13, row: 15)
+        levelLabel.position = pointForColumn(column: 14, row: 19)
         gameLayer.addChild(levelLabel)
         
-        // add the  label for HIGHSCORE
-        let highScoreTextLabel = SKLabelNode(fontNamed: "Helvetica")
-        highScoreTextLabel.text = "HIGHSCORE"
-        highScoreTextLabel.fontColor = UIColor(red: 0, green: 0.73, blue: 1, alpha: 1)
-        highScoreTextLabel.fontSize = 27
-        highScoreTextLabel.fontSize *= scaleFactor
-        // positions the label
-        highScoreTextLabel.position = pointForColumn(column: 14, row: 17)
-        gameLayer.addChild(highScoreTextLabel)
-        
-        // setting the highscore label
-        highScoreLabel.text = "0"
-        highScoreLabel.fontColor = UIColor(red: 1, green: 0, blue: 0.05, alpha: 1)
-        highScoreLabel.fontSize = 35
-        highScoreLabel.fontSize *= scaleFactor
-        highScoreLabel.position = pointForColumn(column: 13, row: 19)
-        gameLayer.addChild(highScoreLabel)
         
         
         // Background sound plays forever
