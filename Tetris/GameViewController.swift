@@ -6,20 +6,34 @@
 //  Copyright (c) 2016 ZDreams. All rights reserved.
 /// Assets by SwiftTres
 
+import GoogleMobileAds
 import UIKit
 import SpriteKit
 
 
-class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerDelegate {
 
+
+class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerDelegate, GADInterstitialDelegate {
+
+    var advertisement: GADInterstitial!
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
     var start : Bool = false // variable to descide if game has started yet
-    
+    var count : Int = 0 // amount of times the user has played the game
+   
     // First function to load in
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //initialize advertisement
+        advertisement = createAndLoadInterstitial()
+
+        // allow the advertisement request to be testested
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID,"2077ef9a63d2b398840261c8221a0c9b" ];
+       
+        
         // configure the view
         let skView = view as! SKView // as is a forced downcast without it we are unable to use skview functions
         skView.isMultipleTouchEnabled = false;
@@ -27,6 +41,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // create and configure the scene
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
+       
         // set the enclosure property of Tick in game scene
         scene.tick = didTick
         
@@ -37,10 +52,23 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // display the scene
         skView.presentScene(scene)
         
-        
-
-        
-        
+    }
+    
+    
+    // used to create and load advertisements
+    func createAndLoadInterstitial() -> GADInterstitial
+    {
+        // change this string into unique admob string
+        let interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
+        interstitialAd.delegate = self
+        interstitialAd.load(GADRequest())
+        return interstitialAd
+    }
+    
+    // when the advertisement is dismissed load another one
+    func interstitialDidDismissScreen(_ ad: GADInterstitial)
+    {
+        advertisement = createAndLoadInterstitial()
     }
     
     // keep track of last point on screen which movement occured
@@ -193,10 +221,27 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         {
             self.view.isUserInteractionEnabled = true
             
-            // saves the local highscore 
+            
+            // saves the local highscore
             tetris.saveHighScore()
            
             print("user default value: \(UserDefaults.standard.value(forKey: "HIGHSCORE")!) ")
+            
+            // increment the count of games played
+            self.count += 1
+            print(self.count)
+            
+            // Each 3rd game over show an advertisement
+            if(self.count % 3 == 0)
+            {
+                // check if the advertisement is ready then present it
+                if self.advertisement.isReady
+                {
+                    self.advertisement.present(fromRootViewController: self)
+                }
+               
+            }
+           
             
             // displays the play msg again
             self.scene.displayPlayMsg()
