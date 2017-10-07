@@ -861,7 +861,7 @@
 				INFOPLIST_FILE = Tetris/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZDreams.SpeedTris;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZDreams.SpeedTris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -879,7 +879,7 @@
 				INFOPLIST_FILE = Tetris/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ZDreams.SpeedTris;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZDreams.SpeedTris;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;

@@ -262,14 +262,15 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         {
             scene.tickLengthMillis -= 100
         }
-        else if scene.tickLengthMillis > 100 && scene.tickLengthMillis < 250
+        else if scene.tickLengthMillis > 50 && scene.tickLengthMillis < 250
         {
             scene.tickLengthMillis -= 50
         }
-        else
+        else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
         {
-            scene.tickLengthMillis -= 20
+            scene.tickLengthMillis -= 5
         }
+
        
         
     }

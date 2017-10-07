@@ -22,7 +22,7 @@ let PreviewRow = 1
 
 // score
 let PointsPerLine = 10
-let LevelThreshold = 100
+
 
 
 // checks whether the user is making legal moves and reacts acordingly (RULES)
@@ -56,6 +56,7 @@ class Tetris
     var highscore = 0;
     var pointsEarned = 0
     var start : Bool = false
+    var LevelThreshold = 100
     
     // initalize the game
     init()
@@ -360,9 +361,10 @@ class Tetris
         }
         
         // level up inform the delegate
-        if Double(score) >= Double(LevelThreshold) * (Double(level)+0.5)
+        if score >= LevelThreshold * level
         {
             level += 1
+            LevelThreshold += 100
             delegate?.gameDidLevelUp(tetris: self)
         }
         
