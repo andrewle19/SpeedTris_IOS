@@ -27,6 +27,7 @@
 		4925E2661F8206D50007C140 /* gameboard.png in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2651F8206D50007C140 /* gameboard.png */; };
 		4925E2681F8206DF0007C140 /* gameboard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2671F8206DF0007C140 /* gameboard@3x.png */; };
 		4925E2EA1F837CA70007C140 /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 4925E2E91F837CA70007C140 /* Sprites.atlas */; };
+		493BAAD01F8ABE6900E8BEF2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493BAACF1F8ABE6800E8BEF2 /* Default-568h@2x.png */; };
 		493E1D591F86366500282A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493E1D581F86366500282A33 /* Main.storyboard */; };
 		49524F5F1DA2F22D002994C1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 49524F5E1DA2F22D002994C1 /* Sounds */; };
 		49524F651DA3013B002994C1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49524F641DA3013B002994C1 /* Array2D.swift */; };
@@ -109,6 +110,7 @@
 		4925E2C81F831F4E0007C140 /* SpeedTrisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTrisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4925E2D31F831F4F0007C140 /* SpeedTrisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeedTrisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4925E2E91F837CA70007C140 /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		493BAACF1F8ABE6800E8BEF2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		493E1D581F86366500282A33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		49524F5E1DA2F22D002994C1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		49524F641DA3013B002994C1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		4903130F1D9F735B00AEAC96 = {
 			isa = PBXGroup;
 			children = (
+				493BAACF1F8ABE6800E8BEF2 /* Default-568h@2x.png */,
 				4903131A1D9F735B00AEAC96 /* Tetris */,
 				490313331D9F735B00AEAC96 /* TetrisTests */,
 				4903133E1D9F735B00AEAC96 /* TetrisUITests */,
@@ -493,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				493BAAD01F8ABE6900E8BEF2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -56,7 +56,7 @@ class Tetris
     var highscore = 0;
     var pointsEarned = 0
     var start : Bool = false
-    var LevelThreshold = 100
+    var LevelThreshold = 50
     
     // initalize the game
     init()
