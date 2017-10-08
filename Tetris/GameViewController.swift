@@ -195,8 +195,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.levelLabel.text = "\(tetris.level)"
         scene.scoreLabel.text = "\(tetris.score)"
         scene.highScoreLabel.text = "\(tetris.highscore)"
-
         scene.tickLengthMillis = TickLengthLevelOne
+        tetris.LevelThreshold = 100
         
         // following is false when restarting a new game
         if tetris.nextShape != nil && tetris.nextShape!.blocks[0].sprite == nil
@@ -216,6 +216,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         view.isUserInteractionEnabled = false
         scene.stopTicking()
         
+        scene.playSound(sound: "Sounds/gameover.mp3")
         // destroy all blocks when lose then start game over again
         scene.animateCollapsingLines(linesToRemove: tetris.removeAllBlocks(), fallenBlocks: tetris.removeAllBlocks())
         {
@@ -254,7 +255,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     
     func gameDidLevelUp(tetris: Tetris)
     {
-        
+        scene.playSound(sound: "Sounds/levelup.mp3")
         // as you level up the speed of the blocks will drop faster
         scene.levelLabel.text = "\(tetris.level)"
         
@@ -262,7 +263,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         {
             scene.tickLengthMillis -= 100
         }
-        else if scene.tickLengthMillis > 50 && scene.tickLengthMillis < 250
+        else if scene.tickLengthMillis > 50 && scene.tickLengthMillis < 150
         {
             scene.tickLengthMillis -= 50
         }
@@ -283,7 +284,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.redrawShape(shape: tetris.fallingShape!){
             tetris.letShapeFall()
         }
-        scene.playSound(sound: "Sounds/drop.mp3")
+        //scene.playSound(sound: "Sounds/drop.mp3")
     }
     
     func gameShapeDidLand(tetris: Tetris)
@@ -294,60 +295,19 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         // check completed lines when shape lands
         // if removed at any lines we update score label to newest score then animate
         let removedLines = tetris.removeCompletedLines()
+        scene.playSound(sound: "Sounds/drop.mp3")
         
         if removedLines.linesRemoved.count > 0
         {
-            
+            scene.playSound(sound: "Sounds/remove.mp3")
             // checks amount of lines removed
             // if removed lines is > 4 then slow down drop rate
-            // else slow down drop rate depedning on how many lines cleared
             if(removedLines.linesRemoved.count >= 4)
             {
-                scene.tickLengthMillis += 50
+                scene.tickLengthMillis += 20
                 print("Speed: \(scene.tickLengthMillis)")
             }
-            else if(removedLines.linesRemoved.count == 2)
-            {
-                if scene.tickLengthMillis > 50
-                {
-                    scene.tickLengthMillis -= 40
-                    
-                }
-                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
-                {
-                    scene.tickLengthMillis -= 8
-                }
-                
-                print("Speed: \(scene.tickLengthMillis)")
-            }
-            else if(removedLines.linesRemoved.count == 3)
-            {
-                if scene.tickLengthMillis > 50
-                {
-                    scene.tickLengthMillis -= 20
-                    
-                }
-                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
-                {
-                    scene.tickLengthMillis -= 5
-                }
-                
-                print("Speed: \(scene.tickLengthMillis)")
-            }
-            else
-            {
-                if scene.tickLengthMillis > 50
-                {
-                    scene.tickLengthMillis -= 50
-                    
-                }
-                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
-                {
-                    scene.tickLengthMillis -= 10
-                }
-                print("Speed: \(scene.tickLengthMillis)")
-            }
-            
+   
             scene.scoreLabel.text = "\(tetris.score)"
             scene.highScoreLabel.text = "\(tetris.highscore)"
           
