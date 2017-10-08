@@ -345,6 +345,8 @@ class Tetris
         if(removedLines.count >= 4)
         {
             pointsEarned = removedLines.count * PointsPerLine * level * 2
+            
+            
         }
         // else at points normally
         else

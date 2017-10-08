@@ -17,21 +17,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>ZDreams.SpeedTris</string>
+	<string>com.ZDreams.SpeedTris</string>
 	<key>PROJECT_ID</key>
 	<string>speedtris-3b1c4</string>
 	<key>STORAGE_BUCKET</key>
 	<string>speedtris-3b1c4.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:502850941119:ios:e664879518517e2d</string>
 	<key>DATABASE_URL</key>

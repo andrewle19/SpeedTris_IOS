@@ -268,7 +268,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         }
         else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
         {
-            scene.tickLengthMillis -= 5
+            scene.tickLengthMillis -= 10
         }
 
        
@@ -297,6 +297,59 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         
         if removedLines.linesRemoved.count > 0
         {
+            
+            // checks amount of lines removed
+            // if removed lines is > 4 then slow down drop rate
+            // else slow down drop rate depedning on how many lines cleared
+            if(removedLines.linesRemoved.count >= 4)
+            {
+                scene.tickLengthMillis += 50
+                print(scene.tickLengthMillis)
+            }
+            else if(removedLines.linesRemoved.count == 2)
+            {
+                if scene.tickLengthMillis > 50
+                {
+                    scene.tickLengthMillis -= 40
+                    
+                }
+                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
+                {
+                    scene.tickLengthMillis -= 8
+                }
+                
+                print(scene.tickLengthMillis)
+
+            }
+            else if(removedLines.linesRemoved.count == 3)
+            {
+                if scene.tickLengthMillis > 50
+                {
+                    scene.tickLengthMillis -= 20
+                    
+                }
+                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
+                {
+                    scene.tickLengthMillis -= 5
+                }
+                
+                print(scene.tickLengthMillis)
+                
+            }
+            else
+            {
+                if scene.tickLengthMillis > 50
+                {
+                    scene.tickLengthMillis -= 50
+                    
+                }
+                else if scene.tickLengthMillis > 0 && scene.tickLengthMillis < 50
+                {
+                    scene.tickLengthMillis -= 10
+                }
+                print(scene.tickLengthMillis)
+            }
+            
             scene.scoreLabel.text = "\(tetris.score)"
             scene.highScoreLabel.text = "\(tetris.highscore)"
           
