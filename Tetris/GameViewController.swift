@@ -229,7 +229,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
             
             // increment the count of games played
             self.count += 1
-            print(self.count)
+            print("count: \(self.count)")
             
             // Each 3rd game over show an advertisement
             if(self.count % 3 == 0)
@@ -304,7 +304,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
             if(removedLines.linesRemoved.count >= 4)
             {
                 scene.tickLengthMillis += 50
-                print(scene.tickLengthMillis)
+                print("Speed: \(scene.tickLengthMillis)")
             }
             else if(removedLines.linesRemoved.count == 2)
             {
@@ -318,8 +318,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
                     scene.tickLengthMillis -= 8
                 }
                 
-                print(scene.tickLengthMillis)
-
+                print("Speed: \(scene.tickLengthMillis)")
             }
             else if(removedLines.linesRemoved.count == 3)
             {
@@ -333,8 +332,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
                     scene.tickLengthMillis -= 5
                 }
                 
-                print(scene.tickLengthMillis)
-                
+                print("Speed: \(scene.tickLengthMillis)")
             }
             else
             {
@@ -347,7 +345,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
                 {
                     scene.tickLengthMillis -= 10
                 }
-                print(scene.tickLengthMillis)
+                print("Speed: \(scene.tickLengthMillis)")
             }
             
             scene.scoreLabel.text = "\(tetris.score)"

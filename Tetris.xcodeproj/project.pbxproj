@@ -30,8 +30,8 @@
 		493E1D591F86366500282A33 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493E1D581F86366500282A33 /* Main.storyboard */; };
 		49524F5F1DA2F22D002994C1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 49524F5E1DA2F22D002994C1 /* Sounds */; };
 		49524F651DA3013B002994C1 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49524F641DA3013B002994C1 /* Array2D.swift */; };
-		496EA2861F7A2CD000035F9A /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496EA2851F7A2CD000035F9A /* images.xcassets */; };
 		499AEE791F88767C0070368B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 499AEE781F88767C0070368B /* GoogleService-Info.plist */; };
+		499AEE7F1F89F2F50070368B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499AEE7E1F89F2F50070368B /* Assets.xcassets */; };
 		49C293A01F79D7F6002D6C68 /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2939F1F79D7F6002D6C68 /* ZShape.swift */; };
 		49E776271F6A86E500D1574E /* JshapeShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776261F6A86E500D1574E /* JshapeShape.swift */; };
 		49E776291F6A88BA00D1574E /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E776281F6A88BA00D1574E /* SShape.swift */; };
@@ -112,8 +112,8 @@
 		493E1D581F86366500282A33 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		49524F5E1DA2F22D002994C1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		49524F641DA3013B002994C1 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
-		496EA2851F7A2CD000035F9A /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		499AEE781F88767C0070368B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		499AEE7E1F89F2F50070368B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49C2939F1F79D7F6002D6C68 /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		49E776261F6A86E500D1574E /* JshapeShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JshapeShape.swift; sourceTree = "<group>"; };
 		49E776281F6A88BA00D1574E /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 				49524F5E1DA2F22D002994C1 /* Sounds */,
 				4903131B1D9F735B00AEAC96 /* AppDelegate.swift */,
 				490313211D9F735B00AEAC96 /* GameViewController.swift */,
+				499AEE7E1F89F2F50070368B /* Assets.xcassets */,
 				4903131F1D9F735B00AEAC96 /* GameScene.swift */,
 				49EFBD6D1F712EC90045A463 /* SpeedTris.swift */,
 				4903132B1D9F735B00AEAC96 /* Info.plist */,
@@ -222,7 +223,6 @@
 				4925E2651F8206D50007C140 /* gameboard.png */,
 				4925E2631F81FD4E0007C140 /* gameboard@2x.png */,
 				4925E2581F7ECBB70007C140 /* whitebg@2x.png */,
-				496EA2851F7A2CD000035F9A /* images.xcassets */,
 				4906E9DC1F689F520014E288 /* TshapeShape.swift */,
 				4906E9DE1F68AF550014E288 /* LineShape.swift */,
 				49E776261F6A86E500D1574E /* JshapeShape.swift */,
@@ -465,9 +465,9 @@
 				493E1D591F86366500282A33 /* Main.storyboard in Resources */,
 				4903132A1D9F735B00AEAC96 /* LaunchScreen.storyboard in Resources */,
 				4925E2661F8206D50007C140 /* gameboard.png in Resources */,
+				499AEE7F1F89F2F50070368B /* Assets.xcassets in Resources */,
 				49524F5F1DA2F22D002994C1 /* Sounds in Resources */,
 				4925E2EA1F837CA70007C140 /* Sprites.atlas in Resources */,
-				496EA2861F7A2CD000035F9A /* images.xcassets in Resources */,
 				4925E25C1F7ECBB70007C140 /* whitebg@2x.png in Resources */,
 				499AEE791F88767C0070368B /* GoogleService-Info.plist in Resources */,
 				4925E2681F8206DF0007C140 /* gameboard@3x.png in Resources */,
