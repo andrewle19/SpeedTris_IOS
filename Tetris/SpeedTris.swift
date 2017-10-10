@@ -64,7 +64,6 @@ class Tetris
         fallingShape = nil
         nextShape = nil
         blockArray = Array2D<Block>(columns: ColumnNum,rows: RowNum)
-        
         // checks if there is a high score avaliable
         if (UserDefaults.standard.bool(forKey: "HIGHSCORE"))
         {
@@ -361,7 +360,7 @@ class Tetris
         {
             highscore = score
         }
-        
+        print(LevelThreshold)
         // level up inform the delegate
         if score >= LevelThreshold * level
         {

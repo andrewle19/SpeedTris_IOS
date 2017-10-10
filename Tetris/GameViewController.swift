@@ -30,8 +30,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         advertisement = createAndLoadInterstitial()
 
         // allow the advertisement request to be testested
-        // let request = GADRequest()
-        // request.testDevices = [ kGADSimulatorID,"2077ef9a63d2b398840261c8221a0c9b" ];
+        let request = GADRequest()
+        request.testDevices = [ kGADSimulatorID,"2077ef9a63d2b398840261c8221a0c9b" ];
        
         
         // configure the view
@@ -59,6 +59,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     func createAndLoadInterstitial() -> GADInterstitial
     {
         // change this string into unique admob string
+        //let interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712")
         let interstitialAd = GADInterstitial(adUnitID: "ca-app-pub-1852088920684374/1279596465")
         interstitialAd.delegate = self
         interstitialAd.load(GADRequest())
@@ -107,7 +108,10 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     // brings shape down faster when swiped down
     @IBAction func didSwipe(_ sender: UISwipeGestureRecognizer)
     {
-        tetris.dropShape()
+        if (start != false)
+        {
+            tetris.dropShape()
+        }
     }
     
     // allows gesture recognizers to work in tandem with one another
@@ -196,7 +200,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.scoreLabel.text = "\(tetris.score)"
         scene.highScoreLabel.text = "\(tetris.highscore)"
         scene.tickLengthMillis = TickLengthLevelOne
-        tetris.LevelThreshold = 100
+        tetris.LevelThreshold = 50
         
         // following is false when restarting a new game
         if tetris.nextShape != nil && tetris.nextShape!.blocks[0].sprite == nil
