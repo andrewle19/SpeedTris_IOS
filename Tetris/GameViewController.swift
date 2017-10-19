@@ -19,7 +19,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     var scene: GameScene! // declare a scene variable type is gamescene
     var tetris: Tetris!
     var start : Bool = false // variable to descide if game has started yet
-    var count : Int = 0 // amount of times the user has played the game
+    var count : Int = 1 // amount of times the user has played the game
    
     // First function to load in
     override func viewDidLoad() {
@@ -237,7 +237,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
             print("count: \(self.count)")
             
             // Each 3rd game over show an advertisement
-            if(self.count % 3 == 0)
+            if(self.count % 2 == 0)
             {
                 // check if the advertisement is ready then present it
                 if self.advertisement.isReady
